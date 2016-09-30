@@ -22,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/wisedu/wec-vue/issues"
   },
-  "homepage": "https://github.com/wisedu/wec-vue#readme"
+  "homepage": "https://github.com/wisedu/wec-vue#readme",
+  "devDependencies": {}
 }

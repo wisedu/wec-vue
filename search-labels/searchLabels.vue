@@ -81,7 +81,7 @@
         computed: {
             moreText () {
                 let texts = this.displayTexts;
-                return this.isMore ? texts.all : texts.more;
+                return this.isMore ? texts.hide : texts.more;
             },
             viewMore () {
                 return this.more && (this.source.length > this.display);

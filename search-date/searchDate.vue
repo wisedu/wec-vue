@@ -20,7 +20,7 @@
      * console.log(dateObj.startTime);
      * console.log(dateObj.endTime);
      */
-    import BhTimepicker from 'bh-vue/bh-timepicker/bhTimepicker.vue';
+    import BhTimepicker from '../../bh-vue/bh-timepicker/bhTimepicker.vue';
 
     export default {
         /**
