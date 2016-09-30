@@ -1,0 +1,23 @@
+{
+  "name": "wec-vue",
+  "version": "0.1.1",
+  "description": "vue components for wecloud",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wisedu/wec-vue.git"
+  },
+  "keywords": [
+    "vue",
+    "components"
+  ],
+  "author": "qintx",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/wisedu/wec-vue/issues"
+  },
+  "homepage": "https://github.com/wisedu/wec-vue#readme"
+}
