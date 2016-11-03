@@ -49,6 +49,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.WidgetBase = exports.SearchLabels = exports.SearchDate = undefined;
 
 	var _searchDate = __webpack_require__(1);
 
@@ -64,11 +65,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = {
-	    SearchDate: _searchDate2.default,
-	    SearchLabels: _searchLabels2.default,
-	    WidgetBase: _widgetBase2.default
-	};
+	exports.SearchDate = _searchDate2.default;
+	exports.SearchLabels = _searchLabels2.default;
+	exports.WidgetBase = _widgetBase2.default;
 
 /***/ },
 /* 1 */
