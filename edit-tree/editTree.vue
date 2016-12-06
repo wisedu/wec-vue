@@ -1,9 +1,11 @@
 <template>
-    <div v-el:treeview>
+    <div v-el:treeview class="wec-school-edit-tree">
         <bh-tree v-ref:tree
+            :default-select='defaultSelect'
             :source='source'
             :fields='fields'
             :operations='opts'
+            @select='selectNode'
             @edit='editName'
             @del='del'></bh-tree>
     </div>
@@ -35,7 +37,7 @@
             return;
         }
 
-        let id = item.id;
+        // let id = item.id;
         let elem = $(item.element);
         let elemPos = elem.offset();
         let label = item.label;
@@ -51,7 +53,7 @@
 
         $('<input>').attr('maxlength', MENU_NAME_MAX_LEN).addClass('bh-mr-4 ').val(label).appendTo(editPanel);
         $('<i class="icon iconfont icon-checkcircle bh-color-primary"></i>').appendTo(editPanel);
-        $('<i class="icon iconfont icon-cancel bh-color-info"></i>').appendTo(editPanel);
+        $('<i class="icon iconfont icon-cancel bh-color-grey-3"></i>').appendTo(editPanel);
 
         let hideEditPanel = () => {
             editPanel.off('click');
@@ -123,12 +125,6 @@
         tree.addBefore(nodeData, firstNode && firstNode.element);
     };
 
-    let _removeFirstNode = (vm) => {
-        let tree = vm.$refs.tree;
-        let firstNode = _getFirstNode(tree);
-        tree.remove(firstNode);
-    };
-
     let _addNode = (vm, nodeData, parent) => {
         let tree = vm.$refs.tree;
         if (!parent) {
@@ -170,7 +166,7 @@
         for (let i = 0, len = source.length; i < len; i++) {
             let data = source[i];
             if (data.id === id) {
-                return $.extend(data, {isNew: false});
+                return $.extend(data, {isNew: false}, {level: item.level});
             }
         }
 
@@ -180,6 +176,12 @@
 
         return null;
     };
+
+    //给非叶子节点增加特定样式，用以区分叶子节点和非叶子节点
+    let _addClassToParentNode = () => {
+        $('.wec-school-edit-tree li:has(.jqx-tree-dropdown)').addClass('edit-tree-haschild');
+        $('.wec-school-edit-tree li:not(:has(.jqx-tree-dropdown))').addClass('edit-tree-leaf-child');
+    }
 
     // let _setNewFlag = (vm, id, isNew) {
     //     if (vm.cachedData[id]) {
@@ -199,7 +201,11 @@
             fields: Object,
             operations: [Array, Function],
             doEdit: Function,
-            doDel: Function
+            doDel: Function,
+            defaultSelect: {
+                type: Boolean,
+                default: false
+            }
         },
         computed: {
             opts () {
@@ -210,7 +216,7 @@
 
                 if (typeof operations === 'function') {
                     let vm = this;
-                    return function(item) {
+                    return function (item) {
                         let opts = operations(_getNodeData(vm, item)) || [];
                         return _optConvert(opts);
                     };
@@ -231,6 +237,9 @@
             },
             newNode (nodeData, parent) {
                 _addNode(this, nodeData, parent);
+            },
+            selectNode (item) {
+                this.$dispatch('select', _getNodeData(this, item));
             }
         },
         beforeDestory () {
@@ -238,7 +247,23 @@
             this.doEdit = null;
             this.doDel = null;
         },
-        components: {BhTree}
+        components: {BhTree},
+        ready () {
+            $('.wec-school-edit-tree').on('mouseover', '.wec-school-domain-item-flag', (e) => {
+                let desc = $(e.target).attr("taginfo");
+                pageUtil.showPopover(e.target, desc, {showCloseButton: false});
+            });
+
+            $('.wec-school-edit-tree').on('mouseout', '.wec-school-domain-item-flag', (e) => {
+                pageUtil.hidePopover();
+            });
+
+        },
+        events: {
+            'initialized': function () {
+                _addClassToParentNode();
+            }
+        }
     };
 </script>
 
@@ -248,6 +273,8 @@
         display: flex;
         left: 0;
         right: 0;
+        height: 30px;
+        background-color: #fff;
 
         input {
             vertical-align: middle;
@@ -260,4 +287,63 @@
             vertical-align: middle;
         }
     }
+
+    div.wec-school-edit-tree {
+        ul.jqx-tree-dropdown-root{
+            width: auto !important;
+            padding: 0 !important;
+        }
+        ul {
+            margin: 0px;
+            padding-left: 32px;
+            li.jqx-tree-item-li {
+                cursor: pointer;
+                line-height: 22px !important;
+                margin-left: 0 !important;
+                padding: 0 !important;
+                span{
+                    margin-top: 7px !important;
+                }
+                div.jqx-tree-item {
+                    background-color: inherit !important;
+                    display: block !important;
+                    font-weight: normal;
+                }
+                div.opt-panel {
+                    a.opt-btn {
+                        color: #fff !important;
+                    }
+                }
+            }
+
+            li.edit-tree-haschild {
+                > div.jqx-tree-item-selected,
+                > div.jqx-tree-item-hover {
+                    color: #3e50b4 !important;
+                    background-color: #fff !important;
+                    font-weight: bold;
+                }
+            }
+            li.edit-tree-leaf-child {
+                background-color: #fff !important;
+                font-weight: normal;
+                color: #000;
+            }
+            li.edit-tree-leaf-child.edit-tree-li-select,
+            li.edit-tree-leaf-child:hover {
+                color: #fff !important;
+                background-color: #3e50b4 !important;
+                font-weight: normal;
+            }
+        }
+    }
+
+    .wec-school-domain-item-flag {
+        width: 9px;
+        height: 9px;
+        background-image: url("./tag.png");
+        display: inline-block;
+        margin-left: 5px;
+    }
+
 </style>

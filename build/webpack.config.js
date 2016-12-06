@@ -10,7 +10,8 @@ module.exports = {
     'resolve': {
         'extensions': ['', '.js', '.vue'],
         'alias': {
-            'bh-vue': path.resolve(__dirname, '../node_modules/bh-vue')
+            'bh-vue': path.resolve(__dirname, '../node_modules/bh-vue'),
+            'bh-util': path.resolve(__dirname, '../node_modules/bh-vue/utils')
         }
     },
     'module': {
@@ -21,7 +22,11 @@ module.exports = {
         {
             'test': /\.js$/,
             'loader': 'babel',
-            'include': [__dirname]
+            'include': [__dirname, /bh-vue/]
+        },
+        {
+            'test': /\.less$/,
+            'loader': 'style-loader!css-loader!less-loader'
         },
         {
             'test': /\.json$/,
