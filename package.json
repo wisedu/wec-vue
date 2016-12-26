@@ -1,6 +1,6 @@
 {
   "name": "wec-vue",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "vue components for wecloud",
   "main": ".eslintrc.js",
   "scripts": {
