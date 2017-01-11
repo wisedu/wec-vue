@@ -31,7 +31,8 @@
             wid: String, // 合同 id
             metaUrl: String,
             modelName: String,
-            detailData: null
+            detailData: null,
+            rowDetails:Function
         },
         computed: {
             listOpts () {
@@ -49,7 +50,11 @@
                     // height: 220,
                     rowDetails: true,
                     initRowDetails (id, row, element, rowinfo) {
-                        _initRowDetails(vm, id, row, element, rowinfo);
+                        if (vm.rowDetails) {
+                            vm.rowDetails(vm, id, row, element, rowinfo);
+                        } else {
+                            _initRowDetails(vm, id, row, element, rowinfo);
+                        }
                     }
                 };
             }
