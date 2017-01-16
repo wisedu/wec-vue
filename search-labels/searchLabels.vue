@@ -2,7 +2,7 @@
     <div class="bh-advancedQuery-form-row">
         <div class="bh-advancedQuery-groupName">{{title}}：</div>
         <div class="bh-advancedQuery-groupList bh-label-radio-group">
-            <div class="bh-advancedQuery-groupList-item bh-label-radio" :class='{"bh-active": !current}' @click='select(null)'>{{displayTexts.all}}</div>
+            <div v-if='showAll' class="bh-advancedQuery-groupList-item bh-label-radio" :class='{"bh-active": !current}' @click='select(null)'>{{displayTexts.all}}</div>
             <div 
                 v-for='item in shownItems' 
                 class="bh-advancedQuery-groupList-item bh-label-radio"
@@ -68,6 +68,10 @@
             },
             more: {
                 default: false,
+                type: Boolean
+            },
+            showAll: {
+                default: true,
                 type: Boolean
             },
             display: {
