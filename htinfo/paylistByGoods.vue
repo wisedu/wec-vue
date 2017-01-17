@@ -17,13 +17,16 @@
     import pageUtil from 'bh-vue/utils/pageUtil';
     import PaylistDetail from './paylistDetail';
 
-    const PAGE_SIZE = 5;
+    // const PAGE_SIZE = 5;
     // const PAGER_HEIGHT = 36;
 
     const _initRowDetails = (vm, id, row, element, rowinfo) => {
         vm.detailData = rowinfo.row.zxfkjh;
+        let parent = element.parent();
         element.append('<paylist-detail :items=\'detailData\'></paylist-detail>');
         vm.$compile(element[0]);
+
+        vm.$nextTick(() => parent.niceScroll());
     };
 
     export default {
@@ -31,8 +34,7 @@
             wid: String, // 合同 id
             metaUrl: String,
             modelName: String,
-            detailData: null,
-            rowDetails:Function
+            detailData: null
         },
         computed: {
             listOpts () {
@@ -50,11 +52,7 @@
                     // height: 220,
                     rowDetails: true,
                     initRowDetails (id, row, element, rowinfo) {
-                        if (vm.rowDetails) {
-                            vm.rowDetails(vm, id, row, element, rowinfo);
-                        } else {
-                            _initRowDetails(vm, id, row, element, rowinfo);
-                        }
+                        _initRowDetails(vm, id, row, element, rowinfo);
                     }
                 };
             }

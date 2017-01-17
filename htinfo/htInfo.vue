@@ -12,7 +12,10 @@
         <payment :wid='wid'
             :data-url='urls.payment.data'
             :list-meta='urls.payment.list.meta'
-            :list-model='urls.payment.list.model'>
+            :list-model='urls.payment.list.model'
+            :list-total-meta='urls.payment.list.totalMeta'
+            :list-total-model='urls.payment.list.totalModel'
+            :all-pay-url='urls.payment.list.allData'>
         </payment>
     </div>
 </template>
@@ -21,8 +24,7 @@
     /**
      * @module HtInfo
      * 合同信息模块，需要配置合同 id 及所有请求相关的 url,
-     * 
-     * 
+     *
      * @example
      * <ht-info :wid='htId' :urls='urls'></ht-info>
      *
@@ -73,8 +75,14 @@
                     payment: {
                         data: '/nk-htgl-glsh/htqcsh/shxq/shhtxx/fkjh',
                         list: {
-                            meta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-htgl-glsh/htqcsh_shxq_shhtxx_fkjh_zx.json',
-                            model: 'htqcsh_shxq_shhtxx_fkjh_zx'
+                            // 货物分阶段付款
+                            meta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-htgl-glsh/htqcsh_shxq_shhtxx_fkjh_hwfjd.json',
+                            model: 'htqcsh_shxq_shhtxx_fkjh_hwfjd',
+                            // 总额分阶段付款
+                            totalMeta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-htgl-glsh/htqcsh_shxq_shhtxx_fkjh_zefjd.json',
+                            totalModel: 'htqcsh_shxq_shhtxx_fkjh_zefjd',
+                            // 一次性付款
+                            allData: 'http://res.wisedu.com:8000/nk-htgl-glsh/htqcsh/shxq/shhtxx/fkjh/ycxfk'
                         }
                     }
                 })

@@ -15,9 +15,12 @@
             </div>
         </div>
         <div class='bh-mb-16'>
-            <span class='subtitle'>合同结算方式：</span> <span>{{payInfo.htjsfs}}</span>
+            <span class='subtitle'>合同结算方式：</span> <span>{{payTypeName}}</span>
         </div>
-        <paylist-by-goods :wid='wid' :meta-url='listMeta' :model-name='listModel'></paylist-by-goods>
+        <paylist-by-goods v-if='payInfo.htjsfs === "2"' :wid='wid' :meta-url='listMeta' :model-name='listModel'></paylist-by-goods>
+        <paylist-by-total v-if='payInfo.htjsfs === "1"' :wid='wid' :meta-url='listTotalMeta' :model-name='listTotalModel'></paylist-by-total>
+        <paylist-by-all v-if='payInfo.htjsfs === "0"' :wid='wid' :data-url='allPayUrl'></paylist-by-all>
+
         <div class='subtitle bh-mt-16 bh-mb-8'>履约保证金</div>
         <div class='table'>
             <div class='thead row'>
@@ -37,6 +40,15 @@
     import {postJson, handler} from 'bh-vue/utils/http';
     import FormGroup from './formGroup';
     import PaylistByGoods from './paylistByGoods';
+    import PaylistByTotal from './paylistByTotal';
+    import PaylistByAll from './paylistByAll';
+
+    // 合同结算方式（0、一次性支付 1、总额分阶段支付 2、货物分阶段支付）
+    const payType = {
+        '0': '一次性支付',
+        '1': '总额分阶段支付',
+        '2': '货物分阶段支付'
+    };
 
     /**
      * 获取合同付款计划信息
@@ -53,15 +65,23 @@
         props: {
             wid: String,
             dataUrl: String,
-            listMeta: String,
-            listModel: String
+            listMeta: String, // 货物分阶段
+            listModel: String,
+            listTotalMeta: String, // 总额分阶段
+            listTotalModel: String,
+            allPayUrl: String // 一次性付款
+        },
+        computed: {
+            payTypeName () {
+                return payType[this.payInfo.htjsfs] || '无';
+            }
         },
         created () {
             _queryPayInfo(this.dataUrl, this.wid).then(data => {
                 this.payInfo = data.fkjhBean; // 后续会根据类型切换不同的bean
             });
         },
-        components: {FormGroup, PaylistByGoods}
+        components: {FormGroup, PaylistByGoods, PaylistByTotal, PaylistByAll}
     };
 </script>
 
