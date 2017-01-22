@@ -41,12 +41,13 @@
     },
 
     props: {
-      url: String
+      url: String,
+      wid:String
     },
     components: {bhStepFlow, bhFlowNode},
     computed: {},
     created(){
-      postJson(this.url, {wid: '5'}, handler.DATAS).then((data) => {
+      postJson(this.url, {wid: this.wid}, handler.DATAS).then((data) => {
         let nodeIndex = 0
         data.rows.forEach((item) => {
           if (item.shzt === 0) {
