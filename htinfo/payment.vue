@@ -78,7 +78,7 @@
         },
         created () {
             _queryPayInfo(this.dataUrl, this.wid).then(data => {
-                this.payInfo = data.fkjhBean; // 后续会根据类型切换不同的bean
+                this.payInfo = data || {}; // 后续会根据类型切换不同的bean
             });
         },
         components: {FormGroup, PaylistByGoods, PaylistByTotal, PaylistByAll}

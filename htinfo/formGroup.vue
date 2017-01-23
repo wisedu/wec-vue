@@ -9,7 +9,7 @@
     </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
     export default {
         props: {
             title: String
