@@ -13,7 +13,7 @@
     /**
      * 合同货物列表
      */
-    import {EmapDatatable} from 'bh-vue';
+    import EmapDatatable from 'bh-vue/dist/EmapDatatable';
     import FormGroup from './formGroup';
 
     const PAGE_SIZE = 5;

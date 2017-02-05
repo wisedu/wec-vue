@@ -6,7 +6,7 @@
     /**
      * 付款计划列表 - 总额分阶段
      */
-    import {EmapDatatable} from 'bh-vue';
+    import EmapDatatable from 'bh-vue/dist/EmapDatatable';
 
     export default {
         props: {

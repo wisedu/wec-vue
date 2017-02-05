@@ -8,7 +8,7 @@
     /**
      * 合同基本信息表单
      */
-    import {EmapForm} from 'bh-vue';
+    import EmapForm from 'bh-vue/dist/EmapForm';
     import {postJson, handler} from 'bh-vue/utils/http';
     import pageUtil from 'bh-vue/utils/pageUtil';
     import FormGroup from './formGroup';

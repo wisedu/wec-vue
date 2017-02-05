@@ -13,7 +13,7 @@
     /**
      * 付款计划列表 - 货物分阶段
      */
-    import {EmapDatatable} from 'bh-vue';
+    import EmapDatatable from 'bh-vue/dist/EmapDatatable';
     import pageUtil from 'bh-vue/utils/pageUtil';
     import PaylistDetail from './paylistDetail';
 
