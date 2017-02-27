@@ -78,6 +78,14 @@
         },
         created () {
             _queryPayInfo(this.dataUrl, this.wid).then(data => {
+                //数据为空时，展示'-'
+                if(data){
+                    _.each(data, (value, key) => {
+                        if(value === null || value === ''){
+                            data[key] = '-'
+                        }
+                    })
+                }
                 this.payInfo = data || {}; // 后续会根据类型切换不同的bean
             });
         },

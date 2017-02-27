@@ -294,6 +294,49 @@
             width: auto !important;
             padding: 0 !important;
         }
+        // ul {
+        //     margin: 0px;
+        //     padding-left: 32px;
+        //     li.jqx-tree-item-li {
+        //         cursor: pointer;
+        //         line-height: 22px !important;
+        //         margin-left: 0 !important;
+        //         padding: 0 !important;
+        //         span{
+        //             margin-top: 7px !important;
+        //         }
+        //         div.jqx-tree-item {
+        //             background-color: inherit !important;
+        //             display: block !important;
+        //             font-weight: normal;
+        //         }
+        //         div.opt-panel {
+        //             a.opt-btn {
+        //                 color: #fff !important;
+        //             }
+        //         }
+        //     }
+
+        //     li.edit-tree-haschild {
+        //         > div.jqx-tree-item-selected,
+        //         > div.jqx-tree-item-hover {
+        //             color: #3e50b4 !important;
+        //             background-color: #fff !important;
+        //             font-weight: bold;
+        //         }
+        //     }
+        //     li.edit-tree-leaf-child {
+        //         background-color: #fff !important;
+        //         font-weight: normal;
+        //         color: #000;
+        //     }
+        //     li.edit-tree-leaf-child.edit-tree-li-select,
+        //     li.edit-tree-leaf-child:hover {
+        //         color: #fff !important;
+        //         background-color: #3e50b4 !important;
+        //         font-weight: normal;
+        //     }
+        // }
         ul {
             margin: 0px;
             padding-left: 32px;
@@ -310,11 +353,6 @@
                     display: block !important;
                     font-weight: normal;
                 }
-                div.opt-panel {
-                    a.opt-btn {
-                        color: #fff !important;
-                    }
-                }
             }
 
             li.edit-tree-haschild {
@@ -323,6 +361,11 @@
                     color: #3e50b4 !important;
                     background-color: #fff !important;
                     font-weight: bold;
+                }
+                div.opt-panel {
+                    a.opt-btn {
+                        color: #00f !important;
+                    }
                 }
             }
             li.edit-tree-leaf-child {
@@ -335,6 +378,11 @@
                 color: #fff !important;
                 background-color: #3e50b4 !important;
                 font-weight: normal;
+                div.opt-panel {
+                    a.opt-btn {
+                        color: #fff !important;
+                    }
+                }
             }
         }
     }
@@ -347,4 +395,17 @@
         margin-left: 5px;
     }
 
+.item-con {
+    display: flex;
+}
+
+.item-con .name {
+
+}
+.item-con .flag {
+    margin-left: 5px;
+    padding: 2px 10px;
+    border-radius: 20px;
+    color: #ffffff;
+}
 </style>
