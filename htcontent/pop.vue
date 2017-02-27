@@ -18,8 +18,12 @@
 <style>
     .pop{
         background-color: #000300;
-        padding: 4px 8px;
+        padding: 4px 12px;
         color: #fff;
+    }
+    .pop .iconfont {
+        position: relative;
+        top: 2px;
     }
     .jqx-popover.bottom .jqx-popover-arrow:after{
         border-bottom-color: #000300 !important;
@@ -29,5 +33,14 @@
     }
     .jqx-popover.bottom .jqx-popover-title{
         display:none;
+    }
+    .jqx-popover {
+        margin-left: 48px !important;
+    }
+    .jqx-popover-content {
+        padding: 0 0 32px !important;
+    }
+    .jqx-popover-arrow {
+        margin-left: -59px !important;
     }
 </style>
