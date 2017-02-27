@@ -76,18 +76,18 @@
         $(".content-entry-con").niceScroll()
         $('.content-header-left').on('mouseover', '.iconfont', (e) => {
             pageUtil.showPopover(e.target, '<pop></pop>', {
-            showCloseButton: false,
-            autoClose: true,
-            height: '32px',
-            width: '270px',
-            ready: function (popWindow) {
-                vm.$compile(popWindow[0])
-            }
+                showCloseButton: false,
+                autoClose: true,
+                height: '32px',
+                width: '230px',
+                ready: function (popWindow) {
+                    vm.$compile(popWindow[0])
+                }
+            })
         })
-//                setTimeout(function () {
-//                    pageUtil.hidePopover();
-//                },3000)
-    })
+        $('.content-header-left').on('mouseleave', '.iconfont', (e) => {
+            pageUtil.hidePopover();
+        })
     },
     methods: {
         outlineSelect(item){
@@ -136,6 +136,7 @@
 <style scoped>
     .vmiddle {
         vertical-align: middle;
+        cursor: pointer;
     }
 
     .htdg {
