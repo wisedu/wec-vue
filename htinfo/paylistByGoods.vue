@@ -30,11 +30,13 @@
     };
 
     export default {
+        data: () => ({
+            detailData: null
+        }),
         props: {
             wid: String, // 合同 id
             metaUrl: String,
             modelName: String,
-            detailData: null
         },
         computed: {
             listOpts () {
@@ -46,7 +48,7 @@
                     params: {
                         wid: this.wid
                     },
-                    pageable: false,
+                    pageable: true,
                     // pageSize: PAGE_SIZE,
                     // pageSizeOptions: [PAGE_SIZE],
                     // height: 220,

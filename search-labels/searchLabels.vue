@@ -12,7 +12,7 @@
             </div>
             <div 
                 v-if='viewMore' 
-                class="bh-advancedQuery-groupList-item"
+                class="bh-advancedQuery-groupList-item opt"
                 @click='toggleMore'>
                 {{moreText}}
             </div>
@@ -142,3 +142,23 @@
         }
     };
 </script>
+
+<style scoped>
+    .bh-advancedQuery-groupList-item {
+        position: relative;
+        padding: 2px 4px;
+        margin-top: 2px;
+        margin-right: 4px;
+        float: left;
+        color: #333;
+        background-color: #fff;
+        border: 1px solid #d8dcf0;
+        border-radius: 1px;
+        cursor: pointer;
+    }
+
+    .bh-advancedQuery-groupList-item.opt {
+        color: #2196f3;
+        border-color: transparent;
+    }
+</style>

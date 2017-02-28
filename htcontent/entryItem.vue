@@ -4,7 +4,7 @@
             <entry :entry-item="item"></entry>
         </div>
         <div class="audit-status bh-pull-left" :class="{notShow:notReview}">
-            <audit-panel :item="item" v-ref:ap></audit-panel>
+            <audit-panel :flow-url='flowUrl' :item="item" v-ref:ap></audit-panel>
         </div>
     </div>
 </template>
@@ -16,7 +16,8 @@
     export default {
         props: {
             item: Object,
-            notReview:Boolean
+            notReview:Boolean,
+            flowUrl: String
         },
         methods: {
             getAuditInfo () {

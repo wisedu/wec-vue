@@ -1,19 +1,24 @@
 <template>
     <bh-step-flow>
-        <bh-flow-node v-for="item in nodeList" :tag="item.status" :num="$index + 1" :title='item.title' :class-name="item.tagClass">
-            <div class="bh-mv-8">
-                <span class="bh-text-caption bh-color-caption">审核时间</span>
-                <span class="bh-text-caption bh-color-default bh-mh-4">{{item.shsj}}</span>
-            </div>
-            <div class="bh-mb-8">
-                <span class="bh-text-caption bh-color-caption">审核人</span>
-                <span class="bh-text-caption bh-color-default    bh-mh-4">{{item.shr}}</span>
-            </div>
-            <div>
-                <span class="bh-text-caption bh-color-caption">审核意见</span>
-                <span class="bh-text-caption bh-color-default    bh-mh-4">{{item.shyj}}</span>
-            </div>
-        </bh-flow-node>
+        <template v-if='nodeList.length > 0'>
+            <bh-flow-node v-for="item in nodeList" :tag="item.status" :num="$index + 1" :title='item.title' :class-name="item.tagClass">
+                <div class="bh-mv-8">
+                    <span class="bh-text-caption bh-color-caption">审核时间</span>
+                    <span class="bh-text-caption bh-color-default bh-mh-4">{{item.shsj}}</span>
+                </div>
+                <div class="bh-mb-8">
+                    <span class="bh-text-caption bh-color-caption">审核人</span>
+                    <span class="bh-text-caption bh-color-default    bh-mh-4">{{item.shr}}</span>
+                </div>
+                <div>
+                    <span class="bh-text-caption bh-color-caption">审核意见</span>
+                    <span class="bh-text-caption bh-color-default    bh-mh-4">{{item.shyj}}</span>
+                </div>
+            </bh-flow-node>
+        </template>
+        <div v-else>
+            当前无审核进度
+        </div>
     </bh-step-flow>
 </template>
 <script>

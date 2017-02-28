@@ -8,7 +8,7 @@
                     <span class='bh-pull-right bh-color-danger-2 hand' @click='feedback=true'>条目有问题</span>
                 </div>
                 <div class='bh-mv-8'>
-                    <span class='sub-indent bh-color-primary-2 hand'>查看审核进度</span>
+                    <term-flow class='sub-indent' :url='flowUrl' :wid='item.htWid' :tm-id='item.wid'></term-flow>
                 </div>
             </div>
             <div v-if='feedback' class='feedback bh-p-8'>
@@ -32,7 +32,7 @@
                 <span class='label bh-color-grey-3 bh-mr-8'>审核意见</span><span>{{item.shyj}}</span>
             </div>
             <div class='bh-mb-8'>
-                <span class='sub-indent bh-color-primary-2 hand'>查看审核进度</span>
+                <term-flow class='sub-indent' :url='flowUrl' :wid='item.htWid' :tm-id='item.wid'></term-flow>
             </div>
         </template>
         <template v-if='status === 0'> <!-- 待审核 -->
@@ -42,7 +42,7 @@
                 <textarea v-if='auditVal === 2' class='bh-bColor-info-3 bh-ph-4' placeholder="请填写审核意见，不超过100个汉字" v-model='auditContent'></textarea>
             </div>
             <div class='bh-ph-8 bh-mb-8'>
-                <span class='bh-color-primary-2 hand'>查看审核进度</span>
+                <term-flow class='sub-indent' :url='flowUrl' :wid='item.htWid' :tm-id='item.wid'></term-flow>
             </div>
         </template>
     </div>
@@ -51,6 +51,7 @@
 <script>
     import BhButton from 'bh-vue/bh-button/bhButton';
     import BhRadio from 'bh-vue/bh-radio/bhRadio';
+    import TermFlow from './termFlow';
 
     export default {
         data: () => ({
@@ -61,7 +62,8 @@
             auditVal: 0 // 审核结果
         }),
         props: {
-            item: Object
+            item: Object,
+            flowUrl: String // 查询审核进度的 url
         },
         computed: {
             status () { // 审核状态（0--未审核； 1--通过； 2--不通过）
@@ -85,7 +87,7 @@
                 };
             }
         },
-        components: {BhButton, BhRadio}
+        components: {BhButton, BhRadio, TermFlow}
     };
 </script>
 
@@ -109,7 +111,7 @@
     }
 
     .sub-indent {
-        margin-left: 50px;
+        margin-left: 20px;
     }
 
     .title {

@@ -27,7 +27,7 @@
                 <div>占合同总额</div><div>具体金额</div><div>付款时间点</div>
             </div>
             <div class='row'>
-                <div>{{payInfo.zhtze}}</div><div>{{payInfo.lybzjjtje}}</div><div>{{payInfo.lybzjfksjd}}</div>
+                <div>{{payInfo.lybzjzhtze}}%</div><div>{{payInfo.lybzjjtje || 0}}</div><div>{{payInfo.lybzjfksjd || '--'}}</div>
             </div>
         </div>
     </form-group>

@@ -7,6 +7,7 @@
         </ht-basic-info>
         <goods :wid='wid'
             :meta-url='urls.goods.meta'
+            :extra-url='urls.goods.extra'
             :model-name='urls.goods.model'>
         </goods>
         <payment :wid='wid'
@@ -40,7 +41,8 @@
      *          },
      *          goods: { // 合同货物相关 url 及 model
      *              meta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-htgl-glsh/htqcsh_shxq_shhtxx_hthw.json',
-     *              model: 'htqcsh_shxq_shhtxx_hthw'
+     *              model: 'htqcsh_shxq_shhtxx_hthw',
+     *              extra: 'http://res.wisedu.com:8000/nk-htgl-glsh/htqcsh/shxq/shhtxx/hthwze'
      *          },
      *          payment: { // 付款计划相关 url 及 model
      *              data: '/nk-htgl-glsh/htqcsh/shxq/shhtxx/fkjh', // 付款概要信息
@@ -70,7 +72,8 @@
                     },
                     goods: { // 合同货物相关 url 及 model
                         meta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-htgl-glsh/htqcsh_shxq_shhtxx_hthw.json',
-                        model: 'htqcsh_shxq_shhtxx_hthw'
+                        model: 'htqcsh_shxq_shhtxx_hthw',
+                        extra: 'http://res.wisedu.com:8000/nk-htgl-glsh/htqcsh/shxq/shhtxx/hthwze'
                     },
                     payment: {
                         data: '/nk-htgl-glsh/htqcsh/shxq/shhtxx/fkjh',

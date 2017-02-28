@@ -19,7 +19,7 @@
             </div>
             <div class="content-body-right">
                 <div class="content-entry-con">
-                    <entry-con v-ref:ec :wid='wid' @ready="getTop" :url="entryUrl" :not-review="notReview"></entry-con>
+                    <entry-con v-ref:ec :wid='wid' @ready="getTop" :url="entryUrl" :flow-url='auditUrl' :not-review="notReview"></entry-con>
                 </div>
             </div>
         </div>
@@ -60,13 +60,14 @@
     },
     props: {
         dealContent: Array,
-                needAudit: Boolean,
-                entryUrl: String,
-                outlineUrl: String,
-                wid: String, // 合同 id
-                mbId: String, // 合同模板 id
-                notReview:Boolean,
-                noHeader:Boolean
+        needAudit: Boolean,
+        entryUrl: String,
+        outlineUrl: String,
+        auditUrl: String, // 查询审核进度
+        wid: String, // 合同 id
+        mbId: String, // 合同模板 id
+        notReview:Boolean,
+        noHeader:Boolean
     },
     ready(){
         let vm = this

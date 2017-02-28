@@ -2,38 +2,33 @@
     <table class='paylist-detail'>
         <tr class='row'>
             <td class="td condition">付款条件</td>
-            <td class="td date">时间点</td>
-            <td class="td total">金额</td>
+            <td class="td percent">占货物总金额比重</td>
+            <td class="td total">具体金额</td>
+            <td class="td date">付款时间点</td>
         </tr>
-        <tr class='row' v-for='item in items'>
+        <tr class='row' v-for='item in clonedItems'>
             <td class="td condition" :title='item.condition'>{{item.fktj}}</td>
-            <td class="td date">{{item.sjd}}</td>
+            <td class="td percent">{{item.zhwjebz}}</td>
             <td class="td total">{{item.je}}</td>
+            <td class="td date">{{item.sjd}}</td>
         </tr>
     </table>
 </template>
 
 <script>
     export default {
+        data: () => ({
+            clonedItems: []
+        }),
         props: {
             items: {
                 type: Array,
-                default () {
-                    return [{
-                        condition: '付款条件1',
-                        date: '2017-01-02',
-                        total: '5000.00'
-                    }, {
-                        condition: '付款条件2',
-                        date: '2017-01-02',
-                        total: '5000.00'
-                    }, {
-                        condition: '付款条件3',
-                        date: '2017-01-02',
-                        total: '5000.00'
-                    }];
-                }
+                default: () => []
             }
+        },
+        created () {
+            // clone一份对象防止多个组件共享数据
+            this.clonedItems = _.cloneDeep(this.items);
         }
     };
 </script>

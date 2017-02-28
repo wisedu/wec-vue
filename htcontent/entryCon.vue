@@ -1,13 +1,14 @@
 <template>
     <entry-item
-            class="entry-con bh-mb-16 bh-clearfix"
-            v-ref:aplist
-            v-for="item in entryList"
-            :item='item'
-            data-wid="{{item.wid}}"
-            @item-ready="entryReady"
-            @audit='audit'
-            :not-review="notReview">
+        class="entry-con bh-mb-16 bh-clearfix"
+        v-ref:aplist
+        v-for="item in entryList"
+        :item='item'
+        data-wid="{{item.wid}}"
+        :flow-url='flowUrl'
+        @item-ready="entryReady"
+        @audit='audit'
+        :not-review="notReview">
     </entry-item>
 </template>
 
@@ -30,8 +31,9 @@
     }),
     props: {
         url: String,
-                wid: String ,// 合同 id
-                notReview:Boolean
+        flowUrl: String, // 进度查询 url
+        wid: String, // 合同 id
+        notReview:Boolean
     },
     ready () {
         postJson(this.url, {htWid: this.wid}, handler.ROWS).then((data) => {
@@ -56,11 +58,11 @@
             let map = this.auditMap;
             Object.keys(map).forEach(item => {
                 if (map[item] === AUDIT_STATUS.APPLY) {
-                apply ++;
-            } else {
-                reject ++;
-            }
-        });
+                    apply ++;
+                } else {
+                    reject ++;
+                }
+            });
 
             return {
                 apply,
