@@ -48,6 +48,8 @@
                     params: {
                         wid: this.wid
                     },
+                    pageSizeOptions: [5, 10, 20],
+                    pageSize: 5,
                     pageable: true,
                     // pageSize: PAGE_SIZE,
                     // pageSizeOptions: [PAGE_SIZE],
