@@ -23,7 +23,9 @@
                     params: {
                         wid: this.wid
                     },
-                    pageable: false
+                    pageable: false,
+                    pageSizeOptions: [5, 10, 20],
+                    pageSize: 5
                 };
             }
         },

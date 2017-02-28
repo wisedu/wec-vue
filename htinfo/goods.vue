@@ -1,5 +1,11 @@
 <template>
     <form-group title='合同货物'>
+        <slot name="goods-bz">
+            <div class='bh-mb-8 goods-summary goods-jsbz'>
+                <span>结算币种：</span>
+                <span>{{jsbz}}</span>
+            </div>
+        </slot>
         <emap-datatable v-el:list v-ref:list :options='listOpts' @ready='listReady'></emap-datatable>
         <div class='bh-mt-8 goods-summary'>
             <span class='bh-mr-16'>总金额合计</span>
@@ -22,7 +28,8 @@
 
     export default {
         data: () => ({
-            total: 0
+            total: 0,
+            jsbz: ''
         }),
         props: {
             wid: String, // 合同 id
@@ -38,7 +45,9 @@
                     schema: false,
                     params: {
                         wid: this.wid
-                    }
+                    },
+                    pageSizeOptions: [5, 10, 20],
+                    pageSize: 5
                     // pageable: false,
                     // pageSize: PAGE_SIZE,
                     // pageSizeOptions: [PAGE_SIZE],
@@ -51,6 +60,7 @@
                 // 获取合同货物总额、币种等信息
                 this.extraUrl && postJson(this.extraUrl, {wid: this.wid}, handler.DATAS).then(data => {
                     this.total = data.ze;
+                    this.jsbz = data.bz;
                 }, () => {
                     pageUtil.tip('获取合同总额失败', 'danger');
                 });
@@ -63,5 +73,9 @@
 <style scoped>
     .goods-summary {
         font-weight: bold;
+    }
+
+    .goods-jsbz {
+        display: none;
     }
 </style>

@@ -2,7 +2,7 @@
     <form-group title='付款计划'>
         <div class='bh-form-horizontal bh-form-readonly bh-form-block bh-mb-4'>
             <div class='bh-form-group  bh-col-md-4'>
-                <label class="bh-form-label bh-form-readonly-label">合同计算币种</label>
+                <label class="bh-form-label bh-form-readonly-label">合同结算币种</label>
                 <div class="bh-form-readonly-input"><p class="bh-form-static bh-ph-8">{{payInfo.htjsbz}}</p></div>
             </div>
             <div class='bh-form-group  bh-col-md-4'>
