@@ -236,6 +236,9 @@
             getSelectedItem () {
                 return this.$refs.tree.getSelectedItem();
             },
+            updateItem (item, newItem) {
+                return this.$refs.tree.updateItem(item, newItem);
+            },
             newNode (nodeData, parent) {
                 _addNode(this, nodeData, parent);
             },
@@ -376,7 +379,7 @@
             li.edit-tree-leaf-child.edit-tree-li-select,
             li.edit-tree-leaf-child:hover {
                 color: #fff !important;
-                background-color: #3e50b4 !important;
+                background-color: #7F86EE !important;
                 font-weight: normal;
                 div.opt-panel {
                     a.opt-btn {
