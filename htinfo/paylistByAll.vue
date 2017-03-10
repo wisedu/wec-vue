@@ -36,6 +36,11 @@
             }, () => {
                 pageUtil.tip('获取付款信息失败', 'danger');
             });
+        },
+        ready () {
+            Vue.nextTick(() => {
+                pageUtil.resetPageFooter();
+            })
         }
     };
 </script>
