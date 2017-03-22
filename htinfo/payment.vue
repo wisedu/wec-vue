@@ -21,7 +21,7 @@
         <paylist-by-total v-if='payInfo.htjsfs === "1"' :wid='wid' :meta-url='listTotalMeta' :model-name='listTotalModel'></paylist-by-total>
         <paylist-by-all v-if='payInfo.htjsfs === "0"' :wid='wid' :data-url='allPayUrl'></paylist-by-all>
 
-        <div class='subtitle bh-mt-16 bh-mb-8'>履约保证金</div>
+        <div class='subtitle bh-mt-16 bh-mb-8'>质保金</div>
         <div class='table'>
             <div class='thead row'>
                 <div>占合同总额</div><div>具体金额</div><div>付款时间点</div>
