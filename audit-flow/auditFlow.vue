@@ -60,7 +60,10 @@
                         item.status = '通过'
                         item.tagClass = 'success'
                     } else if (item.shzt === 2) {
-                        item.status = '退回修改'
+                        item.status = '不通过'
+                        item.tagClass = 'danger'
+                    } else if (item.shzt === 4) {
+                        item.status = '退回'
                         item.tagClass = 'danger'
                     }
                 });
