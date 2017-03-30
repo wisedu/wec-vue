@@ -14,7 +14,7 @@
     </form-group>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
     /**
      * 合同货物列表
      */
@@ -73,9 +73,5 @@
 <style scoped>
     .goods-summary {
         font-weight: bold;
-    }
-
-    .goods-jsbz {
-        display: none;
     }
 </style>
