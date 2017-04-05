@@ -14,7 +14,7 @@
             <div v-if='feedback' class='feedback bh-p-8'>
                 <div class='title'>提交问题</div>
                 <div class="tip bh-mv-8 bh-bg-info-3 bh-p-4">此条目已通过审核，如果需要修改，请填写修改原因</div>
-                <textarea class='bh-bColor-info-3 bh-p-4' placeholder="请填写修改原因，不超过100个汉字" v-model='reason'></textarea>
+                <textarea class='bh-bColor-info-3 bh-p-4' placeholder="请填写修改原因，不超过100个汉字" v-model='reason' maxlength="100"></textarea>
                 <bh-button class='bh-pull-right bh-mv-4' @click='cancelFeedback'>取消</bh-button>
             </div>
         </template>
@@ -39,7 +39,7 @@
             <div class='audit bh-p-8'>
                 <div class='title'>审核结果</div>
                 <bh-radio class='radiolist bh-mv-8' :items='auditStatus' :value.sync='auditVal' dir='h' @change='auditChange'></bh-radio>
-                <textarea v-if='auditVal === 2' class='bh-bColor-info-3 bh-ph-4' placeholder="请填写审核意见，不超过100个汉字" v-model='auditContent'></textarea>
+                <textarea v-if='auditVal === 2' class='bh-bColor-info-3 bh-ph-4' placeholder="请填写审核意见，不超过100个汉字" v-model='auditContent'  maxlength="100"></textarea>
             </div>
             <div class='bh-ph-8 bh-mb-8'>
                 <term-flow class='sub-indent' :url='flowUrl' :wid='item.htWid' :tm-id='item.wid'></term-flow>
