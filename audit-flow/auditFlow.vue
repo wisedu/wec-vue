@@ -1,5 +1,5 @@
 <template>
-    <bh-step-flow>
+    <bh-step-flow class='wec-audit-flow'>
         <template v-if='nodeList.length > 0'>
             <bh-flow-node v-for="item in nodeList" :tag="item.status" :num="$index + 1" :title='item.title' :class-name="item.tagClass">
                 <div class="bh-mv-8">
@@ -73,3 +73,12 @@
         }
     }
 </script>
+
+<style>
+    .wec-audit-flow .scenes-cbrt-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: calc(100% - 30px);
+    }
+</style>

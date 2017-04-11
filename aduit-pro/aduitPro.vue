@@ -1,5 +1,5 @@
 <template>
-  <bh-step-flow>
+  <bh-step-flow class='wec-audit-pro'>
     <bh-flow-node v-for="item in nodeList" :tag="item.status" :num="item.nodeIndex" :title='item.title'
                   :class-name="item.tagClass" :caption="item.caption">
       <div class="bh-mb-8">
@@ -72,10 +72,18 @@
     }
   }
 </script>
+
 <style>
-  .bh-text-caption.bh-caption-default {
-    margin-left: 12px;
-    margin-top: 8px;
-    margin-bottom: 6px;
-  }
+    .wec-audit-pro .bh-text-caption.bh-caption-default {
+      margin-left: 12px;
+      margin-top: 8px;
+      margin-bottom: 6px;
+    }
+
+    .wec-audit-pro .scenes-cbrt-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: calc(100% - 30px);
+    }
 </style>
