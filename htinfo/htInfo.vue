@@ -1,22 +1,23 @@
 <template>
     <div>
-        <ht-basic-info :wid='wid' 
-            :meta-url='urls.basic.meta'
-            :model-name='urls.basic.model'
-            :data-url='urls.basic.data'>
+        <content-down :wid="wid" :data-url="urls.content.data" :generate-pdf="urls.content.generatePdf" :is-zs="isZs"></content-down>
+        <ht-basic-info :wid='wid'
+                       :meta-url='urls.basic.meta'
+                       :model-name='urls.basic.model'
+                       :data-url='urls.basic.data'>
         </ht-basic-info>
         <goods :wid='wid'
-            :meta-url='urls.goods.meta'
-            :extra-url='urls.goods.extra'
-            :model-name='urls.goods.model'>
+               :meta-url='urls.goods.meta'
+               :extra-url='urls.goods.extra'
+               :model-name='urls.goods.model'>
         </goods>
         <payment :wid='wid'
-            :data-url='urls.payment.data'
-            :list-meta='urls.payment.list.meta'
-            :list-model='urls.payment.list.model'
-            :list-total-meta='urls.payment.list.totalMeta'
-            :list-total-model='urls.payment.list.totalModel'
-            :all-pay-url='urls.payment.list.allData'>
+                 :data-url='urls.payment.data'
+                 :list-meta='urls.payment.list.meta'
+                 :list-model='urls.payment.list.model'
+                 :list-total-meta='urls.payment.list.totalMeta'
+                 :list-total-model='urls.payment.list.totalModel'
+                 :all-pay-url='urls.payment.list.allData'>
         </payment>
     </div>
 </template>
@@ -33,7 +34,12 @@
      * export default {
      *   data: () => ({
      *     htId: 1,
+     *     isZs:false,//是否是制式合同
      *     urls: {
+     *          content:{
+     *              data:'/nk-htgl-glsh/htqcsh/shxq/shhtxx/fkjh',
+     *              generatePdf:'/nk-htgl-glsh/htqcsh/shxq/shhtxx/fkjh'
+     *          },
      *          basic: { // 基本信息相关 url 及 model
      *              meta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-htgl-glsh/htqcsh_shxq_shhtxx_jbxx.json',
      *              model: 'htqcsh_shxq_shhtxx_jbxx',
@@ -58,13 +64,19 @@
     import HtBasicInfo from './htBasicInfo';
     import Goods from './goods';
     import Payment from './payment';
+    import contentDown from './contentDown.vue'
 
     export default {
         props: {
             wid: String, // 合同 id
+            isZs:Boolean,//是否制式合同
             urls: {
                 type: Object,
                 default: () => ({
+                    content:{
+                        data:'/nk-htgl-glsh/htqcsh/shxq/shhtxx/fkjh',
+                        generatePdf:'/nk-htgl-glsh/htqcsh/shxq/shhtxx/fkjh'
+                    },
                     basic: { // 基本信息相关 url 及 model
                         meta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-htgl-glsh/htqcsh_shxq_shhtxx_jbxx.json',
                         model: 'htqcsh_shxq_shhtxx_jbxx',
@@ -91,6 +103,6 @@
                 })
             }
         },
-        components: {HtBasicInfo, Goods, Payment}
+        components: {HtBasicInfo, Goods, Payment,contentDown}
     };
 </script>
