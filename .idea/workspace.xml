@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccc2f4e8-1de6-495a-95b7-23edbafc05ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htinfo/contentDown.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htinfo/htInfo.vue" afterPath="$PROJECT_DIR$/htinfo/htInfo.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htinfo/contentDown.vue" afterPath="$PROJECT_DIR$/htinfo/contentDown.vue" />
     </list>
     <ignored path="wec-vue.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,10 +48,10 @@
       <file leaf-file-name="contentDown.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/htinfo/contentDown.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+            <state relative-caret-position="210">
+              <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
               <folding>
-                <element signature="e#1084#1123#0" expanded="true" />
+                <element signature="e#1067#1106#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -216,12 +214,12 @@
       <updated>1490838066086</updated>
       <workItem from="1490838067799" duration="157000" />
       <workItem from="1491545037673" duration="627000" />
-      <workItem from="1491983431785" duration="932000" />
+      <workItem from="1491983431785" duration="1293000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1716000" />
+    <option name="totallyTimeSpent" value="2077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -332,10 +330,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/htinfo/contentDown.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="70" column="22" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
+        <state relative-caret-position="210">
+          <caret line="14" column="70" selection-start-line="14" selection-start-column="70" selection-end-line="14" selection-end-column="70" />
           <folding>
-            <element signature="e#1084#1123#0" expanded="true" />
+            <element signature="e#1067#1106#0" expanded="true" />
           </folding>
         </state>
       </provider>

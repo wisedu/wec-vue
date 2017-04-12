@@ -12,7 +12,7 @@
                     <label class="bh-form-label bh-form-readonly-label " title="已盖章版本">已盖章版本</label>
                     <div class="bh-form-readonly-input">
                         <label v-if="noPdf" class="bh-form-static bh-ph-8">无</label>
-                        <a v-else class="bh-form-static down bh-ph-8" @click="downPdf" :href='fjxzlj' target="_blank">{{fjmc}}</a>
+                        <a v-else class="bh-form-static down bh-ph-8" :href='fjxzlj' target="_blank">{{fjmc}}</a>
                     </div>
                 </div>
             </div>
