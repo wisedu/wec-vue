@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccc2f4e8-1de6-495a-95b7-23edbafc05ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htinfo/contentDown.vue" afterPath="$PROJECT_DIR$/htinfo/contentDown.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htinfo/htInfo.vue" afterPath="$PROJECT_DIR$/htinfo/htInfo.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htinfo/goods.vue" afterPath="$PROJECT_DIR$/htinfo/goods.vue" />
     </list>
     <ignored path="wec-vue.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="goods.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="goods.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/htinfo/goods.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="70" column="9" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
+            <state relative-caret-position="333">
+              <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -71,7 +70,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="htInfo.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="htInfo.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htinfo/htInfo.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="334">
@@ -126,6 +125,7 @@
         <option value="$PROJECT_DIR$/htinfo/payment.vue" />
         <option value="$PROJECT_DIR$/htinfo/contentDown.vue" />
         <option value="$PROJECT_DIR$/htinfo/htInfo.vue" />
+        <option value="$PROJECT_DIR$/htinfo/goods.vue" />
       </list>
     </option>
   </component>
@@ -226,12 +226,12 @@
       <workItem from="1490838067799" duration="157000" />
       <workItem from="1491545037673" duration="627000" />
       <workItem from="1491983431785" duration="2417000" />
-      <workItem from="1492074689513" duration="659000" />
+      <workItem from="1492074689513" duration="1197000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3860000" />
+    <option name="totallyTimeSpent" value="4398000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -363,14 +363,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htinfo/goods.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="70" column="9" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htinfo/paylistByGoods.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="795">
@@ -435,6 +427,14 @@
           <folding>
             <element signature="e#2553#2593#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htinfo/goods.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="60" column="48" selection-start-line="60" selection-start-column="48" selection-end-line="60" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

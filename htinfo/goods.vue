@@ -59,7 +59,7 @@
             listReady () {
                 // 获取合同货物总额、币种等信息
                 this.extraUrl && postJson(this.extraUrl, {wid: this.wid}, handler.DATAS).then(data => {
-                    this.total = data.ze;
+                    this.total = data.ze === null ? 0 : data.ze;
                     this.jsbz = data.bz;
                 }, () => {
                     pageUtil.tip('获取合同总额失败', 'danger');
