@@ -1,6 +1,6 @@
 <template>
     <div>
-        <content-down :wid="wid" :data-url="urls.content.data" :generate-pdf="urls.content.generatePdf" :is-zs="isZs"></content-down>
+        <content-down v-if="showContent" :wid="wid" :data-url="urls.content.data" :generate-pdf="urls.content.generatePdf" :is-zs="isZs"></content-down>
         <ht-basic-info :wid='wid'
                        :meta-url='urls.basic.meta'
                        :model-name='urls.basic.model'
@@ -67,6 +67,11 @@
     import contentDown from './contentDown.vue'
 
     export default {
+        data:()=>{
+            return {
+                showContent:false
+            }
+        },
         props: {
             wid: String, // 合同 id
             isZs:Boolean,//是否制式合同
@@ -103,6 +108,11 @@
                 })
             }
         },
-        components: {HtBasicInfo, Goods, Payment,contentDown}
+        components: {HtBasicInfo, Goods, Payment,contentDown},
+        created(){
+            if(this.urls.content){
+                this.showContent=true
+            }
+        }
     };
 </script>
