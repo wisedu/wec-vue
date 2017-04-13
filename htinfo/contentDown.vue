@@ -5,6 +5,7 @@
                 <div class="bh-form-group  bh-col-md-6" data-col="1">
                     <label class="bh-form-label bh-form-readonly-label " title="原始版本">原始版本</label>
                     <div class="bh-form-readonly-input">
+
                         <a class="bh-form-static down bh-ph-8" @click="downFirst">{{ysbb}}</a>
                     </div>
                 </div>
@@ -66,6 +67,9 @@
         },
         methods: {
             downFirst(){
+                if(this.ysbb===null||this.ysbb===''){
+                    return
+                }
                 if(this.isZs){
                     window.open(`${this.generatePdf}?htwid=${this.htWid}`);
                 }else{

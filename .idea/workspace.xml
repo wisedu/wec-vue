@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccc2f4e8-1de6-495a-95b7-23edbafc05ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htinfo/contentDown.vue" afterPath="$PROJECT_DIR$/htinfo/contentDown.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htinfo/htInfo.vue" afterPath="$PROJECT_DIR$/htinfo/htInfo.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htinfo/payment.vue" afterPath="$PROJECT_DIR$/htinfo/payment.vue" />
     </list>
     <ignored path="wec-vue.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,10 +49,23 @@
       <file leaf-file-name="contentDown.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htinfo/contentDown.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+            <state relative-caret-position="648">
+              <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
-                <element signature="e#1067#1106#0" expanded="true" />
+                <marker date="1492075697000" expanded="true" signature="582:989" ph="..." />
+                <marker date="1492075697000" expanded="true" signature="740:966" ph="..." />
+                <marker date="1492075697000" expanded="true" signature="1062:2851" ph="..." />
+                <marker date="1492075697000" expanded="true" signature="1075:1213" ph="..." />
+                <marker date="1492075697000" expanded="true" signature="1218:1252" ph="/** 获取合同内容的下载文件的url ...*/" />
+                <marker date="1492075697000" expanded="true" signature="1289:1353" ph="{...}" />
+                <marker date="1492075697000" expanded="true" signature="1394:1602" ph="{...}" />
+                <marker date="1492075697000" expanded="true" signature="1415:1592" ph="{&quot;ysbb&quot;: ''...}" />
+                <marker date="1492075697000" expanded="true" signature="1652:1775" ph="{&quot;wid&quot;: String...}" />
+                <marker date="1492075697000" expanded="true" signature="1794:2465" ph="{...}" />
+                <marker date="1492075697000" expanded="true" signature="1854:2454" ph="{...}" />
+                <marker date="1492075697000" expanded="true" signature="1895:2440" ph="{...}" />
+                <marker date="1492075697000" expanded="true" signature="2111:2176" ph="{...}" />
+                <marker date="1492075697000" expanded="true" signature="2182:2422" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -62,10 +74,10 @@
       <file leaf-file-name="htInfo.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/htinfo/htInfo.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
+            <state relative-caret-position="334">
+              <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
               <folding>
-                <element signature="e#2572#2612#0" expanded="true" />
+                <element signature="e#2553#2593#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,6 +124,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/htinfo/payment.vue" />
+        <option value="$PROJECT_DIR$/htinfo/contentDown.vue" />
         <option value="$PROJECT_DIR$/htinfo/htInfo.vue" />
       </list>
     </option>
@@ -213,12 +226,12 @@
       <workItem from="1490838067799" duration="157000" />
       <workItem from="1491545037673" duration="627000" />
       <workItem from="1491983431785" duration="2417000" />
-      <workItem from="1492074689513" duration="271000" />
+      <workItem from="1492074689513" duration="659000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3472000" />
+    <option name="totallyTimeSpent" value="3860000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="6" />
@@ -280,7 +293,20 @@
         <state relative-caret-position="270">
           <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
           <folding>
-            <element signature="e#1067#1106#0" expanded="true" />
+            <marker date="1492075697000" expanded="true" signature="582:989" ph="..." />
+            <marker date="1492075697000" expanded="true" signature="740:966" ph="..." />
+            <marker date="1492075697000" expanded="true" signature="1062:2851" ph="..." />
+            <marker date="1492075697000" expanded="true" signature="1075:1213" ph="..." />
+            <marker date="1492075697000" expanded="true" signature="1218:1252" ph="/** 获取合同内容的下载文件的url ...*/" />
+            <marker date="1492075697000" expanded="true" signature="1289:1353" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="1394:1602" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="1415:1592" ph="{&quot;ysbb&quot;: ''...}" />
+            <marker date="1492075697000" expanded="true" signature="1652:1775" ph="{&quot;wid&quot;: String...}" />
+            <marker date="1492075697000" expanded="true" signature="1794:2465" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="1854:2454" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="1895:2440" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="2111:2176" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="2182:2422" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -290,7 +316,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2572#2612#0" expanded="true" />
+            <element signature="e#2553#2593#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -371,16 +397,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htinfo/contentDown.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-          <folding>
-            <element signature="e#1067#1106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htinfo/payment.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -389,12 +405,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/htinfo/contentDown.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding>
+            <marker date="1492075697000" expanded="true" signature="582:989" ph="..." />
+            <marker date="1492075697000" expanded="true" signature="740:966" ph="..." />
+            <marker date="1492075697000" expanded="true" signature="1062:2851" ph="..." />
+            <marker date="1492075697000" expanded="true" signature="1075:1213" ph="..." />
+            <marker date="1492075697000" expanded="true" signature="1218:1252" ph="/** 获取合同内容的下载文件的url ...*/" />
+            <marker date="1492075697000" expanded="true" signature="1289:1353" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="1394:1602" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="1415:1592" ph="{&quot;ysbb&quot;: ''...}" />
+            <marker date="1492075697000" expanded="true" signature="1652:1775" ph="{&quot;wid&quot;: String...}" />
+            <marker date="1492075697000" expanded="true" signature="1794:2465" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="1854:2454" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="1895:2440" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="2111:2176" ph="{...}" />
+            <marker date="1492075697000" expanded="true" signature="2182:2422" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/htinfo/htInfo.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
+        <state relative-caret-position="334">
+          <caret line="92" column="16" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
           <folding>
-            <element signature="e#2572#2612#0" expanded="true" />
+            <element signature="e#2553#2593#0" expanded="true" />
           </folding>
         </state>
       </provider>
