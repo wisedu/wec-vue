@@ -161,4 +161,9 @@
         color: #2196f3;
         border-color: transparent;
     }
+
+    .bh-advancedQuery-groupList-item.bh-active {
+        background-color: #2196f3;
+        color: #fff;
+    }
 </style>
