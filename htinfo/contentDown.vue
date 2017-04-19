@@ -38,7 +38,8 @@
                 fjWid: '',
                 fjmc: '',
                 fjxzlj: '',
-                htWid: ''
+                htWid: '',
+                sfzs: ''
             }
         },
         components: {formGroup},
@@ -46,7 +47,7 @@
             wid: String,
             dataUrl: String,
             generatePdf: String,
-            isZs:Boolean
+            isZs: Boolean
         },
         created(){
             queryData(this.dataUrl, this.wid).then(data=> {
@@ -54,6 +55,7 @@
                     let downData = data.datas
                     this.ysbb = downData.ysbb
                     this.htWid = downData.htWid
+                    this.sfzs = downData.sfzs
                     if (downData.ygzbb === '' || downData.ygzbb === null) {
                         this.noPdf = true
                     } else {
@@ -67,12 +69,12 @@
         },
         methods: {
             downFirst(){
-                if(this.ysbb===null||this.ysbb===''){
+                if (this.ysbb === null || this.ysbb === '') {
                     return
                 }
-                if(this.isZs){
+                if (this.isZs || this.sfzs === '0') {
                     window.open(`${this.generatePdf}?htwid=${this.htWid}`);
-                }else{
+                } else {
                     pageUtils.alert('非制式合同暂不能生成pdf');
                 }
 
