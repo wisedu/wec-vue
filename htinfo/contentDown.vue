@@ -72,7 +72,7 @@
                 if (this.ysbb === null || this.ysbb === '') {
                     return
                 }
-                if (this.isZs || parseInt(this.sfzs) === '0') {
+                if (this.isZs || parseInt(this.sfzs) ===0) {
                     window.open(`${this.generatePdf}?htwid=${this.htWid}`);
                 } else {
                     pageUtils.alert('非制式合同暂不能生成pdf');
