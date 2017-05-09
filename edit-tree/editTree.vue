@@ -2,6 +2,7 @@
     <div v-el:treeview class="wec-school-edit-tree">
         <bh-tree v-ref:tree
             :default-select='defaultSelect'
+            :default-select-leaf='defaultSelectLeaf'
             :source='source'
             :fields='fields'
             :operations='opts'
@@ -37,7 +38,6 @@
             return;
         }
 
-        // let id = item.id;
         let elem = $(item.element);
         let elemPos = elem.offset();
         let label = item.label;
@@ -94,6 +94,7 @@
         pageUtil.confirm('确认删除此标签？', () => {
             vm.doDel(item).then(() => {
                 pageUtil.tip('删除成功', 'success');
+                // debugger;
                 tree.remove(item);
                 let allItems = tree.getAll();
                 if (allItems && allItems.length > 0) {
@@ -206,6 +207,14 @@
             defaultSelect: {
                 type: Boolean,
                 default: false
+            },
+            defaultSelectLeaf: {
+                type: Boolean,
+                default: false
+            },
+            noLeaf: {
+                type: Boolean,
+                default: false
             }
         },
         computed: {
@@ -236,6 +245,15 @@
             getSelectedItem () {
                 return this.$refs.tree.getSelectedItem();
             },
+            getItem (item) {
+                return this.$refs.tree.getItem(item);
+            },
+            addTo (item, elem) {
+                return this.$refs.tree.addTo(item, elem);
+            },
+            remove (item) {
+                return this.$refs.tree.remove(item);
+            },
             updateItem (item, newItem) {
                 return this.$refs.tree.updateItem(item, newItem);
             },
@@ -244,7 +262,20 @@
             },
             selectNode (item) {
                 this.$dispatch('select', _getNodeData(this, item));
+            },
+            preprocessSource (source) {
+                return this.$refs.tree.preprocessSource(source);
+            },
+            getPrevItem (item) {
+                return this.$refs.tree.getPrevItem(item);
+            },
+            getNextItem (item) {
+                return this.$refs.tree.getNextItem(item);
             }
+            // ,
+            // addTo (item, parentItem) {
+            //     return this.$refs.tree.addTo(item, parentItem);
+            // }
         },
         beforeDestory () {
             this.cachedData = {};
@@ -265,7 +296,9 @@
         },
         events: {
             'initialized': function () {
-                _addClassToParentNode();
+                if(!this.noLeaf) {
+                    _addClassToParentNode();
+                }
             }
         }
     };
@@ -355,6 +388,21 @@
                     background-color: inherit !important;
                     display: block !important;
                     font-weight: normal;
+                }
+            }
+
+
+            li.jqx-tree-item-li {
+                > div.jqx-tree-item-selected,
+                > div.jqx-tree-item-hover {
+                    color: #3e50b4 !important;
+                    background-color: #fff !important;
+                    font-weight: bold;
+                }
+                div.opt-panel {
+                    a.opt-btn {
+                        color: #00f !important;
+                    }
                 }
             }
 
