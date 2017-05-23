@@ -16,17 +16,17 @@
         <!--支付信息-->
 
         <!--借款原因-->
-        <jkyy :data-obj="info"  v-if="toggleText"></jkyy>
+        <jkyy :data-obj="info" v-if="toggleText"></jkyy>
         <!--借款原因-->
 
         <!--预算卡号-->
-        <yskh :urls="urls.yskh.data" :row="row" @alter="alter" v-if="toggleCard"></yskh>
+        <yskh :urls="urls.yskh.data" :row="row" @alter="alter" :show-add="showAdd" v-if="toggleCard"></yskh>
         <!--预算卡号-->
 
         <!--关联发票-->
-          <div class="bh-mt-16">
-            <glfp titleval="关联发票信息" :row="row" :urls="urls.glfp.data" :flag="true" v-if="toggleInvoice"></glfp>
-          </div>
+        <div class="bh-mt-16">
+          <glfp titleval="关联发票信息" :row="row" :urls="urls.glfp.data" :flag="true" v-if="toggleInvoice"></glfp>
+        </div>
         <!--关联发票-->
 
         <!--其他支付凭证-->
@@ -36,14 +36,14 @@
         <!--关联发票-->
 
         <!--金额-->
-        <je :data-obj="zfxqsyxxObj" ></je>
+        <je :data-obj="zfxqsyxxObj"></je>
         <!--金额-->
 
 
       </div>
 
       <!--审核流程-->
-      <div class="bh-col-md-4">
+      <div class="bh-col-md-4" v-if="showShlc">
         <shlc :urls="urls.shlc" :row="row"></shlc>
       </div>
       <!--审核流程-->
@@ -53,15 +53,15 @@
 
     <!--底部按钮-->
     <btn-footer
-      :toggle-prev="togglePrev"
-      :toggle-group="toggleGroup"
-      @pass="pass"
-      @returns="returns"
-      @notpass="notpass"
-      @prev="prev"
-      @next="next">
+            :toggle-prev="togglePrev"
+            :toggle-group="toggleGroup"
+            @pass="pass"
+            @returns="returns"
+            @notpass="notpass"
+            @prev="prev"
+            @next="next">
     </btn-footer>
-  <!--底部按钮-->
+    <!--底部按钮-->
   </div>
 </template>
 <script type="text/javascript">
@@ -212,17 +212,21 @@
         default: true
       },
       //是否展示预算卡号
-      showAdd:{
-        default:true
+      showAdd: {
+        default: true
       },
       //是否展示合同名称
-      toggleTop:{
-        default:true
+      toggleTop: {
+        default: true
+      },
+      //是否展示审核流程
+      showShlc: {
+        default: true
       },
       //接收表格带过来的参数
       row: {
         type: Object,
-        default: function(){
+        default: function () {
           return {}
         }
       },
@@ -230,7 +234,7 @@
       urls: {
         type: Object,
         default: () => ({
-          form:{ // 支付信息配置
+          form: { // 支付信息配置
             meta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-zcgl-zfgl/zfgl_zfsq_zfxq.json',
             model: 'zfgl_zfsq_zfxq',
             data: '/nk-zcgl-zfgl/zfgl/zfsq/zfxq'
@@ -276,7 +280,11 @@
         info: []
       }
     },
-
+    created(){
+      if (parseInt(this.row.shzt) !== 4) {
+        this.showShlc = false
+      }
+    },
     route: {},
     ready() {
       this.jeInited();
@@ -287,7 +295,7 @@
         let self = this;
         // 获取支付信息数据
         var row = this.row,
-        res = {zfglWid:row.zfglWid};
+                res = {zfglWid: row.zfglWid};
         this.urls.form.data && postJson(this.urls.form.data, res, handler.DATAS).then(data => {
 
           this.$refs.form.setValue(data);
@@ -300,18 +308,18 @@
         let self = this;
         // 获取金额和合同号、借款原因数据
         var row = this.row,
-          res = {zfglWid:row.zfglWid};
+                res = {zfglWid: row.zfglWid};
         this.urls.je.data && postJson(this.urls.je.data, res, handler.DATAS).then(data => {
 
-          if(!!data){
+          if (!!data) {
             this.zfxqsyxxObj = data;
 
             var zflb = data.zflb,
-              sfjk = data.sfjk,
-              obj = {},
-              self = this;
+                    sfjk = data.sfjk,
+                    obj = {},
+                    self = this;
 
-            if( zflb == 1 && sfjk == 0){
+            if (zflb == 1 && sfjk == 0) {
 
               obj.title = '借款原因';
 
@@ -319,7 +327,7 @@
 
               self.info.push(obj);
 
-            }else if(zflb == 2 && sfjk == 1){
+            } else if (zflb == 2 && sfjk == 1) {
 
               obj.title = '用途说明';
 
@@ -327,7 +335,7 @@
 
               self.info.push(obj);
 
-            }else if(zflb == 2 && sfjk == 0){
+            } else if (zflb == 2 && sfjk == 0) {
 
               self.info = [
                 {
@@ -377,13 +385,14 @@
   }
 </script>
 <style scoped>
-  .tuihui{
+  .tuihui {
     position: absolute;
     border-radius: 5px;
     top: -48px;
     left: 153px;
   }
-  .l30{
+
+  .l30 {
     line-height: 30px;
   }
 </style>
