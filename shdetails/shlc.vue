@@ -23,6 +23,9 @@
             {{item.title}}
           </div>
         </div>
+        <div class="shzt bh-mv-4" :class="[item.bg]">
+          {{item.shzt}}
+        </div>
         <div class="sh-value">
           <span class="sh-value-t">审核人:</span><span>{{item.shr}}</span>
         </div>
@@ -74,7 +77,10 @@
       }
     },
     ready() {
-      this.init();
+      if(!!this.row.zfglWid){
+        //初始化数据
+        this.init();
+      }
 
     },
     route: {},
@@ -82,8 +88,9 @@
     methods: {
       init(){
 
-        // 获取预算卡号数据
-        this.urls.data && postJson(this.urls.data, {zfglWid:this.row.zfglWid}, handler.DATAS).then(data => {
+        var row = this.row,
+          res = {zfglWid:row.zfglWid};
+        this.urls.data && postJson(this.urls.data, res, handler.DATAS).then(data => {
           //此处存list
           if(!!data){
 
@@ -91,14 +98,63 @@
               this.tjsj = data.rows[0];
             }
 
-            this.list = data.rows.slice(1);
+            var rows =  data.rows.slice(1);
+
+            _.each(rows,function(item,index){
+              if(item.shzt == 0){
+                item.shzt = '未审核';
+                item.bg = 'bh-bg-grey-3';
+              }else if(item.shzt == 1){
+                item.shzt = '通过';
+                item.bg = 'bh-bg-success';
+              }else if(item.shzt == 2){
+                item.shzt = '不通过';
+                item.bg = 'bh-bg-danger';
+              }
+            });
+
+            this.list = rows;
 
           }
 
         }, () => {
-          pageUtil.tip('获取数据失败', 'danger');
+          //待删除
+//            this.tjsj = {shsj:'2017-05-23'};
+//          this.list = [
+//            {
+//              title:'标题1',
+//              shr:'啊三',
+//              shzt:'未审核',
+//              bg:'bh-bg-grey-3',
+//              shsj:'2017-05-23',
+//              shyj:'我很有意见啊'
+//            },
+//            {
+//              title:'标题2',
+//              shr:'李毅',
+//              shzt:'通过',
+//              bg:'bh-bg-success',
+//              shsj:'2017-05-23',
+//              shyj:'我很有意见啊2'
+//            },
+//            {
+//              title:'标题3',
+//              shr:'啊牛',
+//              shzt:'不通过',
+//              bg:'bh-bg-danger',
+//              shsj:'2017-05-23',
+//              shyj:'我很有意见啊3'
+//            }
+//          ];
+          //待删除
+          pageUtil.tip('获取审核流程数据失败', 'danger');
         });
 
+      }
+    },
+    watch: {
+      'row': function () {
+        this.init();
       }
     }
   }
@@ -147,5 +203,12 @@
     display: inline-block;
     width:70px;
   }
-
+  .shzt{
+    width: 50px;
+    line-height: 26px;
+    background: #f00;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+  }
 </style>

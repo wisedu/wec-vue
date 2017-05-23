@@ -30,6 +30,7 @@
 </template>
 <script type="text/javascript">
 
+
   import {postJson, handler} from 'bh-vue/utils/http';
   import pageUtil from 'bh-vue/utils/pageUtil';
   import directUpload from 'bh-vue/direct-upload/directUpload.vue';
@@ -42,7 +43,7 @@
       return {
         imgList: [],
         obj: {
-          url: '/jbxx',
+          url: '/jbxxs',
           x:{a:''},
           btns:['preview']
         }
@@ -65,7 +66,10 @@
       }
     },
     ready() {
-      this.init();
+      if(!!this.row.zfglWid){
+        //初始化数据
+        this.init();
+      }
     },
     route: {},
 
@@ -116,11 +120,16 @@
           }
 
         }, () => {
-          pageUtil.tip('获取数据失败', 'danger');
+          pageUtil.tip('获取上传凭证数据失败', 'danger');
         });
 
       }
 
+    },
+    watch: {
+      'row': function () {
+        this.init();
+      }
     }
   }
 </script>
@@ -133,4 +142,5 @@
   .ml4 {
     margin-left: 4px;
   }
+
 </style>
