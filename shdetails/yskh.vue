@@ -3,7 +3,7 @@
   <div>
     <div class="bh-form-groupname sc-title-borderLeft bh-mb-24" title="预算卡号">
       <span>预算卡号</span>
-      <a href="javaScript:;" class="more ml12" @click="alter()">修改卡号</a>
+      <a href="javaScript:;" v-if="showAdd" class="more ml12" @click="alter()">修改卡号</a>
     </div>
 
     <div class="bh-row ml4">
@@ -12,9 +12,7 @@
         <div class="ka-box bh-p-8">
           <div>
             <div class="ka-icon vm">
-              <svg class="icon" aria-hidden="true" :class="iconClass[index%3]">
-                <use xlink:href="#W_icon-yinxingqia"></use>
-              </svg>
+              <i class="iconfont W_icon-yinxingqia" :class="iconClass[index%3]"></i>
             </div>
             <div class="kahao vm ml4">
               {{item.yskh}}
@@ -48,7 +46,7 @@
 
 <script type="text/javascript">
 
-  import iconfont from 'statics/css/iconfont'
+//  import iconfont from 'statics/css/iconfont'
   import {postJson, handler} from 'bh-vue/utils/http';
   import pageUtil from 'bh-vue/utils/pageUtil';
   export default {
@@ -70,7 +68,8 @@
         default: function(){
           return {}
         }
-      }
+      },
+      showAdd:Boolean
     },
     ready() {
       //初始化数据
@@ -148,6 +147,10 @@
     display: inline-block;
     font-size: 16px;
     color: #666666;
+  }
+  .ka-icon .iconfont{
+    font-size: 42px;
+    line-height: 28px;
   }
   .ka-title{
     width:64px;

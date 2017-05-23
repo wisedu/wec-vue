@@ -1,6 +1,8 @@
 <template>
   <div>
-
+    <div class="bh-mb-16" v-if="toggleTop">
+      <h5>合同名称：{{row.htmc}}</h5>
+    </div>
     <!--正文-->
     <div class="bh-row">
       <div class="bh-col-md-8 bh-pb-32">
@@ -60,12 +62,6 @@
       @next="next">
     </btn-footer>
   <!--底部按钮-->
-    <!--顶部按钮-->
-    <div class="tuihui l30">
-      <span>合同号：</span><span>{{zfxqsyxxObj.htbh}}</span>
-      <button type="button" class="bh-btn bh-btn-primary" v-if="toggleBack" @click="back">退回</button>
-    </div>
-    <!--顶部按钮-->
   </div>
 </template>
 <script type="text/javascript">
@@ -214,6 +210,14 @@
       //关联发票和其他凭证的显示隐藏
       toggleInvoice: {
         default: true
+      },
+      //是否展示预算卡号
+      showAdd:{
+        default:true
+      },
+      //是否展示合同名称
+      toggleTop:{
+        default:true
       },
       //接收表格带过来的参数
       row: {

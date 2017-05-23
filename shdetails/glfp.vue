@@ -133,34 +133,4 @@
   .ml4 {
     margin-left: 4px;
   }
-  .img-box {
-    width: 168px;
-    height: 108px;
-    overflow: hidden;
-    border:1px solid #d8dcf0;
-  }
-  .img-box-li{
-    width: 153px;
-    height: 92px;
-    margin-left: 7px;
-    margin-top: 8px;
-    position: relative;
-    border: 1px solid #a8a8a9;
-    overflow: hidden;
-  }
-  .zzc {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    text-align: center;
-    color: #ffffff;
-    line-height: 108px;
-    cursor: pointer;
-    background-image:  url("../../../statics/imgs/zfsh/eye.png");
-    background-repeat: no-repeat;
-    background-position: center 32px;
-  }
 </style>

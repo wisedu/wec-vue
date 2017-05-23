@@ -83,7 +83,7 @@
       init(){
 
         // 获取预算卡号数据
-        this.urls.data && postJson(this.urls.data, {wid:''}, handler.DATAS).then(data => {
+        this.urls.data && postJson(this.urls.data, {zfglWid:this.row.zfglWid}, handler.DATAS).then(data => {
           //此处存list
           if(!!data){
 

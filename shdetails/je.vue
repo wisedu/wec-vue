@@ -10,7 +10,7 @@
           {{wbbz}}
         </div>
         <div class="bh-pull-left je-value">
-          <span class="je-num">{{dataObj.je}}</span>&nbsp;{{wbbz}} (汇率：{{dataObj.wbhl}}%)
+          <span class="je-num">{{dataObj.je}}</span>&nbsp;{{wbbz}} <span v-if="dataObj.wbbz != 2">(汇率：{{dataObj.wbhl}}%)</span>
         </div>
       </div>
       <div class="bh-clearfix" v-if="dataObj.wbbz != 2">
