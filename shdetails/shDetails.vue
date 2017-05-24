@@ -228,7 +228,7 @@
         type: Object,
         default: () => ({
           form:{ // 支付信息配置
-            meta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-zcgl-zfgl/zfgl_zfsq_zfxq.json',//service.api.item_detailw,
+            meta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-zcgl-zfgl/zfgl_zfsq_zfxq.json',
             model: 'zfsh_shxq_zfxq',
             data: '/nk-zcgl-zfgl/zfsh/shxq/zfxq'
           },
@@ -273,14 +273,10 @@
         info: []
       }
     },
-    created(){
-      if ( !!this.row.shzt &&parseInt(this.row.shzt) !== 4) {
-        this.showShlc = false
-      }
-    },
+
     route: {},
     ready() {
-        console.log(this.row);
+      
       if(!!this.row.zfglWid){
         this.formInited();
         this.jeInited();
