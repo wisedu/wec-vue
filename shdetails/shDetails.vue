@@ -312,9 +312,10 @@
           data.sfjk = sfjk[data.sfjk];
 
           data.zffs = zffs[data.zffs];
-
+          this.$refs.form.reload();
           this.$refs.form.setValue(data);
         }, () => {
+          this.$refs.form.reload();
           pageUtil.tip('获取支付信息失败', 'danger');
         });
 
