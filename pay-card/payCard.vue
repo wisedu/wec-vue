@@ -38,8 +38,8 @@
   import {postJson, handler} from 'bh-vue/utils/http'
   import pageUtil from 'bh-vue/utils/pageUtil'
 
-  const _deleteCard = (url, wid)=> {
-    return postJson(url, {wid: wid}, handler.data)
+  const _deleteCard = (url, obj)=> {
+    return postJson(url, {yskh: obj}, handler.data)
   }
   const _addCard = (url, item)=> {
     return postJson(url, {item: item}, handler.data)
@@ -68,7 +68,7 @@
     },
     props: {
       dataUrl: Object,
-      cardsList: Array,
+      cardsList: Array
     },
     created(){
       this.options.url = this.dataUrl.select
@@ -79,7 +79,8 @@
       },
       dele(index){
         if (this.dataUrl.deletUrl) {
-          _deleteCard().then(data=> {
+
+          _deleteCard(this.dataUrl.deletUrl,this.cardsList[index].yskh).then(data=> {
             if (data.code === '0') {
               pageUtil.tip('删除成功', 'success')
             } else {
@@ -90,31 +91,38 @@
         this.cardsList.splice(index, 1)
       },
       confirm(){
-        let chooseItemValue = this.$refs.ddt.getValue()
-        let chooseItem=$('.add-pay-card').jqxComboBox('getItemByValue', chooseItemValue).originalItem;
-        chooseItem={
-          ye:chooseItem.ye,
-          yskh:chooseItem.yskh,
-          zfje:chooseItem.zfje
-        }
-        if (_.isEmpty(chooseItem)) {
-          pageUtil.tip('请确认已选择新的卡号', 'warning')
-        } else {
-          if (this.dataUrl.addCard) {
-            _addCard(this.dataUrl.addCard, chooseItem).then(data=> {
-              if (data.code === '0') {
-                this.cardsList.push(chooseItem)
-                this.showButton = true
-                pageUtil.tip('新增成功', 'success')
-              }
-            }, ()=> {
-              pageUtil.tip('新增失败', 'danger')
-            })
+        let chooseItemValue = this.$refs.ddt.getValue();
+        if(!!chooseItemValue){
+          let chooseItem=$('.add-pay-card').jqxComboBox('getItemByValue', chooseItemValue).originalItem;
+          chooseItem={
+            ye:chooseItem.ye,
+            yskh:chooseItem.yskh,
+            zfje:chooseItem.zfje
+          };
+
+          if (_.isEmpty(chooseItem)) {
+            pageUtil.tip('请确认已选择新的卡号', 'warning')
           } else {
-            this.cardsList.push(chooseItem)
-            this.showButton = true
+            if (this.dataUrl.addCard) {
+              _addCard(this.dataUrl.addCard, chooseItem).then(data=> {
+                if (data.code === '0') {
+                  this.cardsList.push(chooseItem)
+                  this.showButton = true
+                  pageUtil.tip('新增成功', 'success')
+                }
+              }, ()=> {
+                pageUtil.tip('新增失败', 'danger')
+              })
+            } else {
+              this.cardsList.push(chooseItem)
+              this.showButton = true
+            }
           }
+        }else{
+          pageUtil.tip('请先搜索新的卡号', 'warning');
         }
+
+
       },
       cancel(){
         this.showButton = true

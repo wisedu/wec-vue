@@ -12,7 +12,7 @@
         <div class="ka-box bh-p-8">
           <div>
             <div class="ka-icon vm">
-              <i class="iconfont W_icon-yinxingqia" :class="iconClass[index%3]"></i>
+              <i class="iconfont W_icon-yinxingqia icon" :class="iconClass[index%3]"></i>
             </div>
             <div class="kahao vm ml4">
               {{item.yskh}}
@@ -69,11 +69,15 @@
           return {}
         }
       },
-      showAdd:Boolean
+      showAdd: true
     },
     ready() {
-      //初始化数据
-      this.init();
+
+        if(!!this.row.zfglWid){
+          //初始化数据
+          this.init();
+        }
+
     },
     route: {},
 
@@ -91,6 +95,7 @@
             this.kalist = rows;
           }
         }, () => {
+
           pageUtil.tip('获取预算卡号失败', 'danger');
         });
 
@@ -99,6 +104,11 @@
         this.$dispatch('alter');
       }
 
+    },
+    watch: {
+      'row': function () {
+        this.init();
+      }
     }
   }
 </script>
@@ -147,10 +157,6 @@
     display: inline-block;
     font-size: 16px;
     color: #666666;
-  }
-  .ka-icon .iconfont{
-    font-size: 42px;
-    line-height: 28px;
   }
   .ka-title{
     width:64px;
