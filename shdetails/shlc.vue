@@ -103,7 +103,7 @@
             _.each(rows,function(item,index){
               if(item.shzt == 0){
                 item.shzt = '未审核';
-                item.bg = 'bh-bg-grey-3';
+                item.bg = 'EF971C';
               }else if(item.shzt == 1){
                 item.shzt = '通过';
                 item.bg = 'bh-bg-success';
@@ -165,7 +165,9 @@
     padding: 0;
     list-style: none;
   }
-
+  .EF971C{
+    background: #EF971C;
+  }
   .ml12{
     margin-left: 12px;
   }
