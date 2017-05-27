@@ -20,7 +20,7 @@
         <!--借款原因-->
 
         <!--预算卡号-->
-        <yskh :urls="urls.yskh.data" :row="row" @alter="alter" :show-add="showAdd" v-if="toggleCard"></yskh>
+        <yskh :urls="urls.yskh.data" :row="row" @alter="alter" :yskh-flag="yskhFlag" :show-add="showAdd" v-if="toggleCard"></yskh>
         <!--预算卡号-->
 
         <!--关联发票-->
@@ -222,6 +222,10 @@
         default: function(){
           return {}
         }
+      },
+      //修改卡号更新数据的时候，刷新预算卡号
+      yskhFlag: {
+        default: []
       },
       //各页面的配置url
       urls: {

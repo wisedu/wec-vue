@@ -208,7 +208,6 @@
   .shzt{
     width: 50px;
     line-height: 26px;
-    background: #f00;
     border-radius: 5px;
     text-align: center;
     color: #ffffff;

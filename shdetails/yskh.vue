@@ -69,7 +69,10 @@
           return {}
         }
       },
-      showAdd: true
+      showAdd: true,
+      yskhFlag: {
+        default: []
+      }
     },
     ready() {
 
@@ -107,6 +110,10 @@
     },
     watch: {
       'row': function () {
+        this.init();
+      },
+      'yskhFlag': function (newValue,oldValue) {
+
         this.init();
       }
     }
