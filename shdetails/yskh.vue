@@ -71,7 +71,9 @@
       },
       showAdd: true,
       yskhFlag: {
-        default: []
+        default: function(){
+            return []
+        }
       }
     },
     ready() {

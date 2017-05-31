@@ -101,15 +101,18 @@
             var rows =  data.rows.slice(1);
 
             _.each(rows,function(item,index){
-              if(item.shzt == 0){
-                item.shzt = '未审核';
+              if(item.shzt == 2){
+                item.shzt = '审核中';
                 item.bg = 'EF971C';
-              }else if(item.shzt == 1){
+              }else if(item.shzt == 3){
                 item.shzt = '通过';
                 item.bg = 'bh-bg-success';
-              }else if(item.shzt == 2){
-                item.shzt = '不通过';
+              }else if(item.shzt == 4){
+                item.shzt = '退回';
                 item.bg = 'bh-bg-danger';
+              }else if(item.shzt == 5){
+                item.shzt = '不通过';
+                item.bg = 'bh-bg-grey-3';
               }
             });
 

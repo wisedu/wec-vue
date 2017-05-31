@@ -225,7 +225,9 @@
       },
       //修改卡号更新数据的时候，刷新预算卡号
       yskhFlag: {
-        default: []
+        default: function(){
+          return {}
+        }
       },
       //各页面的配置url
       urls: {
