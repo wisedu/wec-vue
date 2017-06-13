@@ -10,9 +10,9 @@
       </div>
 
       <div class="center-btnbox">
-        <bh-button type="success"  :small="true" @click="pass">通过</bh-button>
-        <bh-button type="default" :small="true" @click="returns">退回</bh-button>
-        <bh-button type="default" :small="true" @click="notpass">不通过</bh-button>
+        <bh-button type="primary"  :small="false" @click="pass">通过</bh-button>
+        <bh-button type="default" :small="false" @click="returns">退回</bh-button>
+        <bh-button type="default" :small="false" @click="notpass">不通过</bh-button>
       </div>
     </div>
     <!--底部按钮-->
@@ -72,11 +72,12 @@
 </script>
 <style scoped>
   .btn-box{
-    width:100%;
+    width: calc( 100% - 80px );
     height:50px;
-    position: relative;
+    position: fixed;
     background: #F7F8FC;
-    margin-bottom: 50px;
+    bottom:34px;
+    left:40px;
   }
   .center-btnbox{
     position: absolute;

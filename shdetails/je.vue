@@ -7,7 +7,7 @@
     <div class="ml12">
       <div class="bh-clearfix">
         <div class="bh-pull-left je-title">
-          {{wbbz}}
+          对应{{wbbz}}金额
         </div>
         <div class="bh-pull-left je-value">
           <span class="je-num">{{dataObj.je}}</span>&nbsp;{{wbbz}} <span v-if="dataObj.wbbz != 2">(汇率：{{dataObj.wbhl}}%)</span>
