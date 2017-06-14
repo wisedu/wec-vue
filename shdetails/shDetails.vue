@@ -318,6 +318,17 @@
           data.sfjk = sfjk[data.sfjk];
 
           data.zffs = zffs[data.zffs];
+          
+          //预算卡号处理(array)
+          var yskh = data.yskh,
+          yskhArr = [];
+
+          _.each(yskh,(item,index)=>{
+            yskhArr.push(item.yskh);
+          });
+    
+          data.yskh = yskhArr.join(',');
+
           this.$refs.form.reload();
           this.$refs.form.setValue(data);
         }, () => {
