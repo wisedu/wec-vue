@@ -91,7 +91,7 @@
 
         let tree = vm.$refs.tree;
 
-        pageUtil.confirm('确认删除此标签？', () => {
+        pageUtil.confirm('确认删除此节点？', () => {
             vm.doDel(item).then(() => {
                 pageUtil.tip('删除成功', 'success');
                 // debugger;
@@ -261,7 +261,12 @@
                 _addNode(this, nodeData, parent);
             },
             selectNode (item) {
+                // debugger;
                 this.$dispatch('select', _getNodeData(this, item));
+            },
+            selectItem (item) {
+                // debugger;
+                this.$refs.tree.selectItem(item);
             },
             preprocessSource (source) {
                 return this.$refs.tree.preprocessSource(source);
@@ -271,6 +276,12 @@
             },
             getNextItem (item) {
                 return this.$refs.tree.getNextItem(item);
+            },
+            expandItem (item) {
+                return this.$refs.tree.expandItem(item);
+            },
+            getAll () {
+                return this.$refs.tree.getAll();
             }
             // ,
             // addTo (item, parentItem) {
