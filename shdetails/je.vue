@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <!--金额-->
   <div class="bh-mt-24">
     <div class="bh-form-groupname sc-title-borderLeft bh-mb-24" title="金额">
@@ -81,7 +81,7 @@
     margin-left: 4px;
   }
   .je-title{
-    width:100px;
+    width:130px;
     color: #666666;
   }
   .je-value{
