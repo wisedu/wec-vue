@@ -72,12 +72,23 @@
 </script>
 <style scoped>
   .btn-box{
-    width: calc( 100% - 80px );
-    height:50px;
+    height: 50px;
     position: fixed;
     background: #F7F8FC;
-    bottom:34px;
-    left:40px;
+    width:93.5%;
+    bottom: 34px;
+    left:50%;
+    transform: translateX(-50%);
+  }
+  @media screen and (max-width: 1290px) {
+    .btn-box {
+         width:93.5%;
+    }
+  }
+  @media screen and (min-width: 1900px) {
+    .btn-box {
+         width: 81.5%;
+    }
   }
   .center-btnbox{
     position: absolute;
