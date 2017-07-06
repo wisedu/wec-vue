@@ -143,7 +143,7 @@
     vertical-align: middle;
   }
   .ka-box{
-    width:224px;
+    width:244px;
     height:96px;
     border:1px solid #d8dcf0;
     margin-bottom: 8px;

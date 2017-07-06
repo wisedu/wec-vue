@@ -6,12 +6,30 @@
     <!--正文-->
     <div class="bh-row">
       <div class="bh-col-md-8 bh-pb-32">
+
+        <!--灰色背景-->
+        <div class="write-header bh-mb-24" v-if="toggleHead">
+          <div class="write-header-htmc">
+            <h3>333</h3>
+          </div>
+          <div>
+            <span class="bh-color-caption">{{htje(444)}}</span>
+            <span class="bh-color-caption bh-mh-16">{{htje(55)}}</span>
+            <span class="bh-color-caption">{{htje(666)}}</span>
+            <span class="bh-color-caption bh-mh-16">{{htje(77)}}</span>
+            <span class="bh-color-caption">{{htje(888)}}</span>
+          </div>
+          <div class="bh-mt-16">
+            <span class="bh-color-caption">合同金额：{{htje(99)}} |</span>
+            <span class="bh-color-caption bh-mh-8">已支付金额：{{htje(10)}} |</span>
+            <span class="bh-color-caption">待支付金额：{{htje(11)}} |</span>
+            <span class="bh-color-caption bh-mh-8">此次支付金额：12</span>
+          </div>
+        </div>
+        <!--灰色背景-->
+
         <!--支付信息-->
-        <emap-form v-ref:form
-                   offset-top=0
-                   :options="ps.option"
-                   :outline="ps.outline"
-                   >
+        <emap-form v-ref:form offset-top=0 :options="ps.option" :outline="ps.outline">
         </emap-form>
         <!--支付信息-->
 
@@ -172,87 +190,95 @@
   import bhButton from 'bh-vue/bh-button/bhButton.vue'
 
 
-  export default {
-    components: {
-      emapForm,
-      glfp,
-      btnFooter,
-      yskh,
-      je,
-      shlc,
-      jkyy,
-      bhButton
+export default {
+  components: {
+    emapForm,
+    glfp,
+    btnFooter,
+    yskh,
+    je,
+    shlc,
+    jkyy,
+    bhButton
+  },
+  props: {
+    //上一份，下一份
+    togglePrev: {
+      default: false
     },
-    props: {
-      //上一份，下一份
-      togglePrev: {
-        default: false
-      },
-      //整个按钮组
-      toggleGroup: {
-        default: true
-      },
-      //预算卡号模块显示隐藏
-      toggleCard: {
-        default: true
-      },
-      //借款原因的显示隐藏
-      toggleText: {
-        default: false
-      },
-      //关联发票和其他凭证的显示隐藏
-      toggleInvoice: {
-        default: true
-      },
-      //是否展示预算卡号
-      showAdd: {
-        default: true
-      },
-      //是否展示合同名称
-      toggleTop: {
-        default: false
-      },
-      //是否展示审核流程
-      showShlc: {
-        default: true
-      },
-      //接收表格带过来的参数
-      row: {
-        type: Object,
-        default: function(){
-          return {}
-        }
-      },
-      //修改卡号更新数据的时候，刷新预算卡号
-      yskhFlag: {
-        default: function(){
-          return {}
-        }
-      },
-      //各页面的配置url
-      urls: {
-        type: Object,
-        default: () => ({
-          form:{ // 支付信息配置
-            meta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-zcgl-zfgl/zfgl_zfsq_zfxq.json',
-            model: 'zfsh_shxq_zfxq',
-            data: '/nk-zcgl-zfgl/zfsh/shxq/zfxq'
-          },
-          yskh: { // 预算卡号url
-            data: '/nk-zcgl-zfgl/zfsh/shxq/zfxqYskhList'
-          },
-          glfp: { // 关联发票url
-            data: '/nk-zcgl-zfgl/zfsh/shxq/scpz'
-          },
-          je: { // 金额url
-            data: '/nk-zcgl-zfgl/zfsh/shxq/zfxqsyxx'
-          },
-          shlc: { // 审核流程http://res.wisedu.com:8000
-            title: '审核流程',
-            data: '/nk-zcgl-zfgl/zfsh/shxq/ckshjd'
-          }
-        })
+    //整个按钮组
+    toggleGroup: {
+      default: true
+    },
+    //灰色区域显示隐藏
+    toggleHead:{
+      default: false
+    },
+    //预算卡号模块显示隐藏
+    toggleCard: {
+      default: true
+    },
+    //借款原因的显示隐藏
+    toggleText: {
+      default: false
+    },
+    //关联发票和其他凭证的显示隐藏
+    toggleInvoice: {
+      default: true
+    },
+    //是否展示预算卡号
+    showAdd: {
+      default: true
+    },
+    //是否展示合同名称
+    toggleTop: {
+      default: false
+    },
+    //是否展示审核流程
+    showShlc: {
+      default: true
+    },
+    //接收表格带过来的参数
+    row: {
+      type: Object,
+      default: function () {
+        return {}
       }
+    },
+    //修改卡号更新数据的时候，刷新预算卡号
+    yskhFlag: {
+      default: function () {
+        return {}
+      }
+    },
+    //各页面的配置url
+    urls: {
+      type: Object,
+      default: () => ({
+        //灰色头部区域
+        writeHeader:{
+          data: '/nk-zcgl-zfgl/zfsh/shxq/zfxqYskhList'
+        },
+        form: { // 支付信息配置
+          meta: 'http://res.wisedu.com/WeCloud/emap-meta/manage-apps/nk-zcgl-zfgl/zfgl_zfsq_zfxq.json',
+          model: 'zfsh_shxq_zfxq',
+          data: '/nk-zcgl-zfgl/zfsh/shxq/zfxq'
+        },
+        yskh: { // 预算卡号url
+          data: '/nk-zcgl-zfgl/zfsh/shxq/zfxqYskhList'
+        },
+        glfp: { // 关联发票url
+          data: '/nk-zcgl-zfgl/zfsh/shxq/scpz'
+        },
+        je: { // 金额url
+          data: '/nk-zcgl-zfgl/zfsh/shxq/zfxqsyxx'
+        },
+        shlc: { // 审核流程http://res.wisedu.com:8000
+          title: '审核流程',
+          data: '/nk-zcgl-zfgl/zfsh/shxq/ckshjd'
+        }
+      })
+    }
 
     },
     computed: {
@@ -280,23 +306,38 @@
       }
     },
 
-    route: {},
-    ready() {
-      
-      if(!!this.row.zfglWid){
-        this.formInited();
-        this.jeInited();
-      }
+  route: {},
+  ready() {
 
+    if (!!this.row.zfglWid) {
+      // this.writeHeader();
+      this.formInited();
+      this.jeInited();
+    }
+
+
+  },
+  methods: {
+    writeHeader() {
+      let self = this;
+      // 获取支付信息数据
+      var row = this.row,
+        res = { zfglWid: row.zfglWid };
+      this.urls.writeHeader.data && postJson(this.urls.writeHeader.data, res, handler.DATAS).then(data => {
+
+        
+      }, () => {
+       
+        pageUtil.tip('获取支付信息失败', 'danger');
+      });
 
     },
-    methods: {
-      formInited(){
-        let self = this;
-        // 获取支付信息数据
-        var row = this.row,
-        res = {zfglWid:row.zfglWid};
-        this.urls.form.data && postJson(this.urls.form.data, res, handler.DATAS).then(data => {
+    formInited() {
+      let self = this;
+      // 获取支付信息数据
+      var row = this.row,
+        res = { zfglWid: row.zfglWid };
+      this.urls.form.data && postJson(this.urls.form.data, res, handler.DATAS).then(data => {
 
           var zflb = {
             1: '合同类',
@@ -319,15 +360,7 @@
 
           data.zffs = zffs[data.zffs];
           
-          //预算卡号处理(array)
-          // var yskh = data.yskh,
-          // yskhArr = [];
-
-          // _.each(yskh,(item,index)=>{
-          //   yskhArr.push(item.yskh);
-          // });
-    
-          // data.yskh = yskhArr.join(',');
+      
 
           this.$refs.form.reload();
           this.$refs.form.setValue(data);
@@ -410,10 +443,20 @@
       //修改卡号
       alter () {
         this.$dispatch('alter');
-      }
     },
-    watch: {
-      'row': function () {
+    //计算金额
+    htje(je){
+      if( je<10000 ){
+        return je + '元'
+      }else{
+        return je/10000 + '万'
+      }
+      
+      
+    }
+  },
+  watch: {
+    'row': function () {
 
           this.formInited();
           this.jeInited();
