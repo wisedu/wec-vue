@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="padding-bottom:50px;">
     <div class="bh-mb-16" v-if="toggleTop">
       <h5>合同名称：{{row.htmc}}</h5>
     </div>
