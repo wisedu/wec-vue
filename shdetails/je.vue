@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <!--金额-->
   <div class="bh-mt-24">
     <div class="bh-form-groupname sc-title-borderLeft bh-mb-24" title="金额">
@@ -7,13 +7,13 @@
     <div class="ml12">
       <div class="bh-clearfix">
         <div class="bh-pull-left je-title">
-          对应{{wbbz}}金额
+          <span v-if="dataObj.wbbz != 2 && dataObj.wbbz !== null">对应</span>{{wbbz}}金额
         </div>
         <div class="bh-pull-left je-value">
-          <span class="je-num">{{dataObj.je}}</span>&nbsp;{{wbbz}} <span v-if="dataObj.wbbz != 2">(汇率：{{dataObj.wbhl}}%)</span>
+          <span class="je-num">{{dataObj.je}}</span>&nbsp;{{wbbz}} <span v-if="dataObj.wbbz != 2 && dataObj.wbbz !== null">(汇率：{{dataObj.wbhl}}%)</span>
         </div>
       </div>
-      <div class="bh-clearfix" v-if="dataObj.wbbz != 2">
+      <div class="bh-clearfix" v-if="dataObj.wbbz != 2 && dataObj.wbbz !== null ">
         <div class="bh-pull-left je-title">
           对应人民币
         </div>
@@ -40,7 +40,12 @@
 
     computed: {
       wbbz() {
-        return bz[this.dataObj.wbbz];
+        if(!!this.dataObj.wbbz){
+          return bz[this.dataObj.wbbz];
+        }else{
+          return '人民币'
+        }
+        
       }
     },
     data: () => {
@@ -81,7 +86,7 @@
     margin-left: 4px;
   }
   .je-title{
-    width:130px;
+    width:160px;
     color: #666666;
   }
   .je-value{
