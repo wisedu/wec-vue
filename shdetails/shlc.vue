@@ -89,7 +89,10 @@
       init(){
 
         var row = this.row,
-          res = {zfglWid:row.zfglWid};
+          res = {
+            zfglWid:row.zfglWid,
+            flowInstanceId:row.flowInstanceId
+        };
         this.urls.data && postJson(this.urls.data, res, handler.DATAS).then(data => {
           //此处存list
           if(!!data){
