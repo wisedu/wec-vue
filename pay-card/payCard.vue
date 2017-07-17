@@ -103,6 +103,19 @@
           if (_.isEmpty(chooseItem)) {
             pageUtil.tip('请确认已选择新的卡号', 'warning')
           } else {
+          
+            let flag = false;
+            $.each(this.cardsList,(index,item)=>{
+              if(item.yskh === chooseItem.yskh ){
+                flag = true;
+                //跳出循环
+                return false;
+              }
+            });
+            if(flag){
+              pageUtil.tip('卡号重复请重新选择卡号!', 'warning');
+              return;
+            }
             if (this.dataUrl.addCard) {
               _addCard(this.dataUrl.addCard, chooseItem).then(data=> {
                 if (data.code === '0') {
