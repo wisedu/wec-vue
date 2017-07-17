@@ -16,12 +16,22 @@
         let transition = vm.$router._currentTransition;
         let path = transition.to.path;
         let menus = vm.menus;
+        let matched = false;
         for (let i = 0, length = menus.length; i < length; i++) {
             let menu = menus[i];
             let url = menu.url;
             if (path === url) {
                 vm.current = menu.name;
+                matched = true;
                 break;
+            }
+        }
+        if(matched == false && vm.defaultMenu) {
+            for (let i = 0, length = menus.length; i < length; i++) {
+                if (vm.defaultMenu === menus[i].url) {
+                    vm.current = menus[i].name;
+                    break;
+                }
             }
         }
     };
@@ -31,6 +41,7 @@
             current: null
         }),
         props: {
+            defaultMenu: String,
             title: String,
             menus: {
                 type: Array,
