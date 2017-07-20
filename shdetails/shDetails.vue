@@ -87,7 +87,7 @@
     <!--正文-->
   
     <!--底部按钮-->
-    <btn-footer :toggle-prev="togglePrev" :toggle-group="toggleGroup" @pass="pass" @returns="returns" @notpass="notpass" @prev="prev" @next="next">
+    <btn-footer :left-acitve="leftAcitve" :right-acitve="rightAcitve" :toggle-prev="togglePrev" :toggle-group="toggleGroup" @pass="pass" @returns="returns" @notpass="notpass" @prev="prev" @next="next">
     </btn-footer>
     <!--底部按钮-->
   </div>
@@ -214,6 +214,13 @@ export default {
   props: {
     //上一份，下一份
     togglePrev: {
+      default: false
+    },
+    //上一份，下一份的置灰设置
+    leftAcitve: {
+      default: false
+    },
+    rightAcitve: {
       default: false
     },
     //整个按钮组

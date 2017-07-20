@@ -120,7 +120,7 @@
           }
 
         }, () => {
-          pageUtil.tip('获取上传凭证数据失败', 'danger');
+          // pageUtil.tip('获取上传凭证数据失败', 'danger');
         });
 
       }
