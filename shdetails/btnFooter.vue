@@ -2,10 +2,10 @@
   <div v-if="toggleGroup">
     <!--底部按钮-->
     <div class="btn-box bh-clearfix">
-      <div class="left-btn bh-pull-left bh-bColor-grey-3 bh-border-r" v-if="togglePrev" @click="prev">
+      <div class="left-btn bh-pull-left bh-bColor-grey-3 bh-border-r" :class="{active:leftAcitve}" v-if="togglePrev" @click="prev">
         <div ><&nbsp;&nbsp;&nbsp;&nbsp;上一份</div>
       </div>
-      <div class="right-btn bh-pull-right bh-bColor-grey-3 bh-border-l" v-if="togglePrev"  @click="next">
+      <div class="right-btn bh-pull-right bh-bColor-grey-3 bh-border-l" :class="{active:rightAcitve}" v-if="togglePrev"  @click="next">
         <div>下一份&nbsp;&nbsp;&nbsp;&nbsp;></div>
       </div>
 
@@ -35,6 +35,12 @@
       },
       toggleGroup: {
         default: true
+      },
+      leftAcitve: {
+        default: false
+      },
+      rightAcitve: {
+        default: false
       }
     },
     computed: {
@@ -106,5 +112,8 @@
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+  }
+  .left-btn.active,.right-btn.active{
+    opacity: 0.5
   }
 </style>

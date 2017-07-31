@@ -24,7 +24,7 @@
         <div class='subtitle bh-mt-16 bh-mb-8'>质保金</div>
         <div class='table'>
             <div class='thead row'>
-                <div>占合同总额</div><div>具体金额</div><div>退还截止日期</div>
+                <div>占合同总额</div><div>具体金额（元）</div><div>付款时间点</div>
             </div>
             <div class='row'>
                 <div>{{payInfo.lybzjzhtze !== '-' ? payInfo.lybzjzhtze + '%' : '-' }}</div><div>{{payInfo.lybzjjtje || '-'}}</div><div>{{payInfo.lybzjfksjd || '-'}}</div>

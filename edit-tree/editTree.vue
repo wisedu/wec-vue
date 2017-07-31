@@ -268,6 +268,11 @@
                 // debugger;
                 this.$refs.tree.selectItem(item);
             },
+            selectItemByData (item) {
+                // debugger;
+                let newItem = this.$refs.tree.getItem(item);
+                this.$refs.tree.selectItem(newItem);
+            },
             preprocessSource (source) {
                 return this.$refs.tree.preprocessSource(source);
             },
@@ -417,35 +422,35 @@
                 }
             }
 
-            li.edit-tree-haschild {
-                > div.jqx-tree-item-selected,
-                > div.jqx-tree-item-hover {
-                    color: #3e50b4 !important;
-                    background-color: #fff !important;
-                    font-weight: bold;
-                }
-                div.opt-panel {
-                    a.opt-btn {
-                        color: #00f !important;
-                    }
-                }
-            }
-            li.edit-tree-leaf-child {
-                background-color: #fff !important;
-                font-weight: normal;
-                color: #000;
-            }
-            li.edit-tree-leaf-child.edit-tree-li-select,
-            li.edit-tree-leaf-child:hover {
-                color: #fff !important;
-                background-color: #7F86EE !important;
-                font-weight: normal;
-                div.opt-panel {
-                    a.opt-btn {
-                        color: #fff !important;
-                    }
-                }
-            }
+            // li.edit-tree-haschild {
+            //     > div.jqx-tree-item-selected,
+            //     > div.jqx-tree-item-hover {
+            //         color: #3e50b4 !important;
+            //         background-color: #fff !important;
+            //         font-weight: bold;
+            //     }
+            //     div.opt-panel {
+            //         a.opt-btn {
+            //             color: #00f !important;
+            //         }
+            //     }
+            // }
+            // li.edit-tree-leaf-child {
+            //     background-color: #fff !important;
+            //     font-weight: normal;
+            //     color: #000;
+            // }
+            // li.edit-tree-leaf-child.edit-tree-li-select,
+            // li.edit-tree-leaf-child:hover {
+            //     color: #fff !important;
+            //     background-color: #7F86EE !important;
+            //     font-weight: normal;
+            //     div.opt-panel {
+            //         a.opt-btn {
+            //             color: #fff !important;
+            //         }
+            //     }
+            // }
         }
     }
 
