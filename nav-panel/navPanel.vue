@@ -4,7 +4,7 @@
         <div class='nav-list'>
             <ul>
                 <li v-for='menu in menus'>
-                    <a v-link='menu.url' class='bh-ph-24' :class='{"active": current == menu.name}'>{{menu.name}}</a>
+                    <a v-link='menu.url' class='bh-ph-24' :class='["bh-bColor-hover-primary", current == menu.name ? "bh-bColor-primary":"", current == menu.name ? "active":""]'>{{menu.name}}</a>
                 </li>
             </ul>
         </div>
@@ -16,12 +16,22 @@
         let transition = vm.$router._currentTransition;
         let path = transition.to.path;
         let menus = vm.menus;
+        let matched = false;
         for (let i = 0, length = menus.length; i < length; i++) {
             let menu = menus[i];
             let url = menu.url;
             if (path === url) {
                 vm.current = menu.name;
+                matched = true;
                 break;
+            }
+        }
+        if(matched == false && vm.defaultMenu) {
+            for (let i = 0, length = menus.length; i < length; i++) {
+                if (vm.defaultMenu === menus[i].url) {
+                    vm.current = menus[i].name;
+                    break;
+                }
             }
         }
     };
@@ -31,6 +41,7 @@
             current: null
         }),
         props: {
+            defaultMenu: String,
             title: String,
             menus: {
                 type: Array,
@@ -86,10 +97,10 @@
                         box-sizing: border-box;
 
                         font-size: 1.5rem;
-                        border-bottom: 2px solid transparent;
+                        border-bottom: 4px solid transparent;
 
                         &:hover, &.active {
-                            border-color: #333;
+                            // border-color: #333;
                             font-weight: bold;
                         }
                     }
