@@ -4,7 +4,7 @@
         <div class='nav-list'>
             <ul>
                 <li v-for='menu in menus'>
-                    <a v-link='menu.url' class='bh-ph-24' :class='["bh-bColor-hover-primary", current == menu.name ? "bh-bColor-primary":"", current == menu.name ? "active":""]'>{{menu.name}}</a>
+                    <a v-link='menu.url' class='bh-ph-24' :class='["bh-bColor-hover-info", current == menu.name ? "bh-bColor-info":"", current == menu.name ? "active":""]'>{{menu.name}}</a>
                 </li>
             </ul>
         </div>
@@ -73,12 +73,15 @@
     .nav-panel {
     	box-shadow: 0 1px 3px 2px rgba(160, 160, 160, 0.2);
         background-color: #fff;
-        line-height: 4rem;
+        line-height: 35px;
 
         .title {
             display: inline-block;
-            font-size: 2rem;
-            line-height: 2rem;
+            font-size: 20px;
+            line-height: 40px;
+            i{
+                font-size: 20px;
+            }
         }
 
         .nav-list {
@@ -96,7 +99,7 @@
                         display: inline-block;
                         box-sizing: border-box;
 
-                        font-size: 1.5rem;
+                        font-size: 15px;
                         border-bottom: 4px solid transparent;
 
                         &:hover, &.active {
