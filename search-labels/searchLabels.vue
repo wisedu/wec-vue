@@ -2,17 +2,17 @@
     <div class="bh-advancedQuery-form-row">
         <div class="bh-advancedQuery-groupName">{{title}}：</div>
         <div class="bh-advancedQuery-groupList bh-label-radio-group">
-            <div v-if='showAll' class="bh-advancedQuery-groupList-item bh-label-radio" :class='{"bh-active": !current}' @click='select(null)'>{{displayTexts.all}}</div>
+            <div v-if='showAll' class="bh-advancedQuery-groupList-item bh-label-radio" :class='{"bh-bg-primary bh-color-white": !current}' @click='select(null)'>{{displayTexts.all}}</div>
             <div 
                 v-for='item in shownItems' 
                 class="bh-advancedQuery-groupList-item bh-label-radio"
-                :class='{"bh-active": item === current}'
+                :class='{"bh-bg-primary bh-color-white": item === current}'
                 @click='select(item)'>
                 {{item[nameMember]}}
             </div>
             <div 
                 v-if='viewMore' 
-                class="bh-advancedQuery-groupList-item opt"
+                class="bh-advancedQuery-groupList-item opt bh-color-primary"
                 @click='toggleMore'>
                 {{moreText}}
             </div>
