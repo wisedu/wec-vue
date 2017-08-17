@@ -11,7 +11,7 @@
             </div>
             <div class='bh-form-group  bh-col-md-4'>
                 <label class="bh-form-label bh-form-readonly-label">重大经济合同论证表</label>
-                <div class="bh-form-readonly-input"><p class="bh-form-static bh-ph-8"><a :href="payInfo.zdjjhtlzb">{{payInfo.zdjjhtlzbmc}}</a></p></div>
+                <div class="bh-form-readonly-input"><p class="bh-form-static bh-ph-8"><a target="_blank" :href="payInfo.zdjjhtlzb">{{payInfo.zdjjhtlzbmc}}</a></p></div>
             </div>
         </div>
         <div class='bh-mb-16'>
