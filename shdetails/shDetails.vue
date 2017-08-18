@@ -231,6 +231,10 @@ export default {
     toggleHead: {
       default: false
     },
+    //支付申请时调用灰色区域信息false为申请，true为审核
+    toggleHeadsq: {
+      default: true
+    },
     //预算卡号模块显示隐藏
     toggleCard: {
       default: true
@@ -289,10 +293,13 @@ export default {
         shlc: { // 审核流程http://res.wisedu.com:8000
           title: '审核流程',
           data: '/nk-zcgl-zfgl/zfsh/shxq/ckshjd'
+        },
+        head: {
+          ytl: '/nk-zcgl-zfgl/zfsh/shxq/zfshXqZyxxByYtl',
+          htl: '/nk-zcgl-zfgl/zfsh/shxq/zfshXqZyxxByHtl'
         }
       })
     }
-
   },
   computed: {
     ps() {
@@ -347,26 +354,63 @@ export default {
           zflb: self.zflb
         };
       var url = '';
-      if (self.zflb === 1) {
-        //合同类
-        self.zflbFlag = true;
-        url = '/nk-zcgl-zfgl/zfsh/shxq/zfshXqZyxxByHtl';
-      } else if (self.zflb === 2) {
-        //用途类
-        self.zflbFlag = false;
-        url = '/nk-zcgl-zfgl/zfsh/shxq/zfshXqZyxxByYtl';
-      }
-      postJson(url, res, handler.DATAS).then(data => {
-        if (!!data) {
-          self.writeHeaderObj = data
-        } else {
-          pageUtil.tip('获取头部信息失败', 'danger');
+      //支付审核调用灰色区域
+      if (self.toggleHeadsq) {
+
+        if (self.zflb === 1) {
+          //合同类
+          self.zflbFlag = true;
+          url = self.urls.head.htl;
+        } else if (self.zflb === 2) {
+          //用途类
+          self.zflbFlag = false;
+          url = self.urls.head.ytl;
         }
 
-      }, () => {
+        postJson(url, res, handler.DATAS).then(data => {
+          if (!!data) {
+            self.writeHeaderObj = data
+          } else {
+            pageUtil.tip('获取头部信息失败', 'danger');
+          }
 
-        pageUtil.tip('获取头部信息失败', 'danger');
-      });
+        }, () => {
+
+          pageUtil.tip('获取头部信息失败', 'danger');
+        });
+
+
+        //支付申请调用灰色区域
+      } else {
+
+        url = '/nk-zcgl-zfgl/zfgl/zfsq/head/select';
+        if (self.zflb === 1) {
+          //合同类
+          self.zflbFlag = true;
+        } else if (self.zflb === 2) {
+          //用途类
+          self.zflbFlag = false;
+        }
+        postJson(url, res, handler.DATAS).then(data => {
+          if (!!data) {
+            if (self.zflb === 1) {
+              //合同类
+              self.writeHeaderObj = data.htlHead;
+            } else if (self.zflb === 2) {
+              //用途类
+              self.writeHeaderObj = data.ytlHead
+            }
+            
+          } else {
+            pageUtil.tip('获取头部信息失败', 'danger');
+          }
+
+        }, () => {
+
+          pageUtil.tip('获取头部信息失败', 'danger');
+        });
+      }
+
 
     },
     formInited() {
@@ -405,8 +449,10 @@ export default {
         this.$refs.form.setValue(data);
 
         //调用头部灰色区域接口
-
-        self.writeHeader();
+        if(this.toggleHead){
+          self.writeHeader();
+        }
+        
 
       }, () => {
         this.$refs.form.reload();
@@ -532,6 +578,7 @@ export default {
 .l30 {
   line-height: 30px;
 }
+
 .write-header {
   width: 100%;
   padding: 12px 12px 12px 24px;
