@@ -11,7 +11,7 @@
         </div>
         <div class="bh-l-inline pay-card-zfje">
           <h5 class="bh-color-default bh-l-inline">支付金额</h5>
-          <bh-input placeholder='请输入支付金额' :value.sync="card.zfje"></bh-input>
+          <bh-input placeholder='请输入支付金额' type="number" :value.sync="card.zfje"></bh-input>
           <span class="bh-color-default">元</span>
         </div>
         <div class="bh-l-inline pay-card-delete">
@@ -93,29 +93,17 @@
       confirm(){
         let chooseItemValue = this.$refs.ddt.getValue();
         if(!!chooseItemValue){
-          let chooseItem=$('.add-pay-card').jqxComboBox('getItemByValue', chooseItemValue).originalItem;
-          chooseItem={
-            ye:chooseItem.ye,
-            yskh:chooseItem.yskh,
-            zfje:chooseItem.zfje
+          let chooseItems=$('.add-pay-card').jqxComboBox('getItemByValue', chooseItemValue).originalItem;
+          let chooseItem={
+            ye:chooseItems.ye,
+            yskh:chooseItems.yskh,
+            zfje:chooseItems.zfje,
+            ndzxqkWid:chooseItems.ndzxqkWid 
           };
 
           if (_.isEmpty(chooseItem)) {
             pageUtil.tip('请确认已选择新的卡号', 'warning')
           } else {
-          
-            let flag = false;
-            $.each(this.cardsList,(index,item)=>{
-              if(item.yskh === chooseItem.yskh ){
-                flag = true;
-                //跳出循环
-                return false;
-              }
-            });
-            if(flag){
-              pageUtil.tip('卡号重复请重新选择卡号!', 'warning');
-              return;
-            }
             if (this.dataUrl.addCard) {
               _addCard(this.dataUrl.addCard, chooseItem).then(data=> {
                 if (data.code === '0') {
