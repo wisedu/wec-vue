@@ -64,8 +64,13 @@
             nodeIndex = item.nodeIndex
             item.nodeIndex = item.nodeIndex.toString()//转成字符串
           }
-          item.caption = '<span class="bh-text-caption bh-color-caption">审核时间</span>'+
+          if(!!item.shsj){
+            item.caption = '<span class="bh-text-caption bh-color-caption">审核时间</span>'+
                   '<span class="bh-text-caption bh-color-default bh-mh-8">'+item.shsj+'</span>'
+          }else{
+            item.caption = '';
+          }
+          
         })
         this.nodeList = data.rows
       })
