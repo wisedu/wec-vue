@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="sh-value">
-          <span class="sh-value-t">申请时间:</span><span>{{tjsj.shsj}}</span>
+          <span class="sh-value-t">申请时间:</span><span>{{!!tjsj.shsj?tjsj.shsj:''}}</span>
         </div>
 
       </li>
@@ -27,16 +27,16 @@
           {{item.shzt}}
         </div>
         <div class="sh-value">
-          <span class="sh-value-t">审核人:</span><span>{{item.shr}}</span>
+          <span class="sh-value-t">审核人:</span><span>{{!!item.shr?item.shr:''}}</span>
         </div>
         <div class="sh-value">
-          <span class="sh-value-t">审核时间:</span><span>{{item.shsj}}</span>
+          <span class="sh-value-t">审核时间:</span><span>{{!!item.shsj?item.shsj:''}}</span>
         </div>
         <div class="sh-value">
           审核意见:
         </div>
         <div class="sh-value">
-          {{item.shyj}}
+          {{!!item.shyj?item.shyj:''}}
         </div>
       </li>
       <!--人事处审核-->
@@ -116,6 +116,9 @@
               }else if(item.shzt == 5){
                 item.shzt = '不通过';
                 item.bg = 'bh-bg-grey-3';
+              }else if(item.shzt == 0){
+                item.shzt = '待审核';
+                item.bg = 'EF971C';
               }
             });
 
