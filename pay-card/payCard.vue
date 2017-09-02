@@ -98,6 +98,7 @@
             ye:chooseItems.ye,
             yskh:chooseItems.yskh,
             zfje:chooseItems.zfje,
+            xmfzr:chooseItems.xmfzr,
             ndzxqkWid:chooseItems.ndzxqkWid 
           };
 
