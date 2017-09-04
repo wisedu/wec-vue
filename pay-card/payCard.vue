@@ -99,7 +99,8 @@
             yskh:chooseItems.yskh,
             zfje:chooseItems.zfje,
             xmfzr:chooseItems.xmfzr,
-            ndzxqkWid:chooseItems.ndzxqkWid 
+            ndzxqkWid:chooseItems.ndzxqkWid,
+            ysxmWid:  chooseItems.ysxmWid
           };
 
           if (_.isEmpty(chooseItem)) {
