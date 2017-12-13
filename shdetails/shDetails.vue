@@ -434,7 +434,8 @@ export default {
             1: '电汇',
             2: '汇票 ',
             3: '支票',
-            4: '现金'
+            4: '现金',
+            5: '打卡'
           };
 
         data.zflb = zflb[data.zflb];
