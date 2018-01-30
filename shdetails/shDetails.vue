@@ -56,7 +56,7 @@
         <!--借款原因-->
   
         <!--预算卡号-->
-        <yskh :urls="urls.yskh.data" :row="row" @alter="alter" :yskh-flag="yskhFlag" :show-add="showAdd" v-if="toggleCard"></yskh>
+        <yskh :urls="urls.yskh.data" :row="row" @alter="alter" @intyskh="intyskh" :yskh-flag="yskhFlag" :show-add="showAdd" v-if="toggleCard"></yskh>
         <!--预算卡号-->
   
         <!--关联发票-->
@@ -369,7 +369,14 @@ export default {
 
         postJson(url, res, handler.DATAS).then(data => {
           if (!!data) {
-            self.writeHeaderObj = data
+            self.writeHeaderObj = data;
+
+            self.writeHeaderObj.zflb = self.zflb;
+            // self.writeHeaderObj.yskhList
+            this.$dispatch('headerinfo',self.writeHeaderObj);
+           
+  
+
           } else {
             pageUtil.tip('获取头部信息失败', 'danger');
           }
@@ -473,7 +480,7 @@ export default {
 
         if (!!data) {
           this.zfxqsyxxObj = data;
-
+          this.$dispatch('je',data.je);
           var zflb = data.zflb,
             sfjk = data.sfjk,
             obj = {},
@@ -535,6 +542,9 @@ export default {
     //修改卡号
     alter() {
       this.$dispatch('alter');
+    },
+    intyskh(list) {
+      this.$dispatch('intyskh',list);
     },
     //计算金额
     htje(je) {

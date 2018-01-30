@@ -98,6 +98,7 @@
             var rows = data.rows;
 
             this.kalist = rows;
+            this.$dispatch('intyskh',rows.slice(0));
           }
         }, () => {
 
@@ -115,8 +116,8 @@
         this.init();
       },
       'yskhFlag': function (newValue,oldValue) {
-
-        this.init();
+        debugger;
+        this.kalist = this.yskhFlag;
       }
     }
   }
