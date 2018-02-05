@@ -436,20 +436,12 @@ export default {
           sfjk = {
             0: '是',
             1: '不是'
-          },
-          zffs = {
-            1: '电汇',
-            2: '汇票 ',
-            3: '支票',
-            4: '现金',
-            5: '打卡'
           };
 
         data.zflb = zflb[data.zflb];
 
         data.sfjk = sfjk[data.sfjk];
 
-        data.zffs = zffs[data.zffs];
 
 
 
